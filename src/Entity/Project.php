@@ -8,6 +8,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 class Project
@@ -40,7 +41,7 @@ class Project
     /**
      * @var
      */
-    private $tech;
+    private $techs;
 
     /**
      * @return int
@@ -116,18 +117,35 @@ class Project
     }
 
     /**
-     * @param string $tech
+     * Project constructor.
      */
-    public function setTech(string $tech) :void
+    public function __construct()
     {
-        $this->tech = $tech;
+        $this->techs = new ArrayCollection();
     }
 
     /**
-     * @return null|string
+     * @param Tech $tech
      */
-    public function getTech() :?string
+    public function addTech(Tech $tech)
     {
-        return $this->tech;
+        $this->techs[] = $tech;
     }
+
+    /**
+     * @param Tech $tech
+     */
+    public function removeTech(Tech $tech)
+    {
+        $this->techs->removeElement($tech);
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getTechs() :ArrayCollection
+    {
+        return $this->techs;
+    }
+
 }

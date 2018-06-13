@@ -12,6 +12,7 @@
         <field name="addedOn" column="added_on" type="date"/>
         <field name="pictRef" column="pict_ref" type="string" length="50" nullable="true" unique="true"/>
         <field name="description" column="desdription" type="text"/>
+        <many-to-many field="techs" target-entity="App\Entity\Tech"/>
     </entity>
 
 </doctrine-mapping>
