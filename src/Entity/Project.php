@@ -44,6 +44,11 @@ class Project
     private $techs;
 
     /**
+     * @var
+     */
+    private $link;
+
+    /**
      * @return int
      */
     public function getId() :int
@@ -114,6 +119,22 @@ class Project
     public function getDescription() :?string
     {
         return $this->description;
+    }
+
+    /**
+     * @param string $link
+     */
+    public function setLink(string $link) :void
+    {
+        $this->link = $link;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getLink() :?string
+    {
+        return $this->link;
     }
 
     /**
