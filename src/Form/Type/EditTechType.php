@@ -9,9 +9,11 @@
 namespace App\Form\Type;
 
 
+use App\DTO\EditTechDTO;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class EditTechType extends AbstractType
@@ -35,7 +37,12 @@ class EditTechType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
        $resolver->setDefaults([
-           'data_class' => 'App\Entity\Tech'
+           'data_class' => EditTechDTO::class,
+           'empty_data' => function(FormInterface $form){
+                return new EditTechDTO(
+                    $form->get('name')->getData()
+                );
+           }
        ]);
 
     }

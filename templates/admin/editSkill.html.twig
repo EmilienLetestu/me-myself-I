@@ -8,6 +8,11 @@
             {{ form_errors(form.name) }}
         </div>
         <div>
+            {{ form_label(form.level) }}
+            {{ form_widget(form.level) }}
+            {{ form_errors(form.level) }}
+        </div>
+        <div>
             <button type="submit">Valider</button>
         </div>
         {{ form_end(form) }}

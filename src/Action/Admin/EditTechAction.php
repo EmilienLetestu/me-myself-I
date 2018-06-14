@@ -45,15 +45,8 @@ class EditTechAction
      */
     private $handler;
 
-    /**
-     * @var EntityManagerInterface
-     */
-    private $doctrine;
 
-    /**
-     * @var Tech
-     */
-    private $tech;
+
 
 
     /**
@@ -69,17 +62,13 @@ class EditTechAction
         SessionInterface         $session,
         FormFactoryInterface     $formFactory,
         UrlGeneratorInterface    $urlGenerator,
-        EditTechHandlerInterface $handler,
-        EntityManagerInterface   $doctrine,
-        Tech                     $tech
+        EditTechHandlerInterface $handler
     )
     {
         $this->session        = $session;
         $this->formFactory    = $formFactory;
         $this->urlGenerator   = $urlGenerator;
         $this->handler        = $handler;
-        $this->doctrine       = $doctrine;
-        $this->tech           = $tech;
     }
 
     /**
@@ -94,24 +83,19 @@ class EditTechAction
      */
     public function __invoke(Request $request, EditTechResponder $responder)
     {
-        $tech = $this->tech;
-
         $form = $this->formFactory
-            ->create(EditTechType::class, $tech)
+            ->create(EditTechType::class)
             ->handleRequest($request)
         ;
 
-        if($this->handler->handle($form, $tech))
+        if($this->handler->handle($form))
         {
-            $this->doctrine->persist($tech);
-            $this->doctrine->flush();
-
             $this->session->getFlashBag()
                 ->add('success', 'Technologie ajoutée avec succès')
             ;
 
             return new RedirectResponse(
-                $this->urlGenerator->generate('dashboard')
+                $this->urlGenerator->generate('home')
             );
         }
 

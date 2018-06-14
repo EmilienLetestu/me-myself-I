@@ -11,21 +11,45 @@ namespace App\Handler;
 
 
 
-use App\Entity\Skill;
+use App\Builder\SkillBuilder;
 use App\Handler\Interfaces\EditSkillHandlerInterface;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\FormInterface;
 
 class EditSkillHandler implements EditSkillHandlerInterface
 {
+    private $skilBuilder;
+
+    private $doctrine;
+
+    public function __construct(
+        SkillBuilder           $skillBuilder,
+        EntityManagerInterface $doctrine
+    )
+    {
+        $this->skilBuilder = $skillBuilder;
+        $this->doctrine    = $doctrine;
+    }
+
     /**
      * @param FormInterface $form
-     * @param Skill $skill
      * @return bool
      */
-    public function handle(FormInterface $form, Skill $skill): bool
+    public function handle(FormInterface $form): bool
     {
         if ($form->isSubmitted() && $form->isSubmitted())
         {
+            $this->skilBuilder->edit(
+                $form->get('name')->getData(),
+                $form->get('level')->getData()
+            );
+
+            $this->doctrine->persist(
+                $this->skilBuilder->getSkill()
+            );
+
+            $this->doctrine->flush();
+
             return true;
         }
         return false;

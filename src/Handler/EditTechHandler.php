@@ -9,21 +9,48 @@
 namespace App\Handler;
 
 
-use App\Entity\Tech;
+use App\Builder\TechBuilder;
 use App\Handler\Interfaces\EditTechHandlerInterface;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\FormInterface;
 
 class EditTechHandler implements EditTechHandlerInterface
 {
     /**
+     * @var TechBuilder
+     */
+    private $techBuilder;
+
+    /**
+     * @var EntityManagerInterface
+     */
+    private $doctrine;
+
+    public function __construct(
+        TechBuilder $techBuilder,
+        EntityManagerInterface $doctrine
+    )
+    {
+        $this->techBuilder = $techBuilder;
+        $this->doctrine    = $doctrine;
+    }
+
+    /**
      * @param FormInterface $form
-     * @param Tech $tech
      * @return bool
      */
-    public function handle(FormInterface $form, Tech $tech): bool
+    public function handle(FormInterface $form): bool
     {
         if($form->isSubmitted() && $form->isValid())
         {
+            $this->techBuilder->edit(
+                $form->get('name')->getData()
+            );
+
+            $this->doctrine->persist($this->techBuilder->getTech());
+            $this->doctrine->flush();
+
+
             return true;
         }
 

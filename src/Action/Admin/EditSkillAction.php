@@ -31,16 +31,6 @@ class EditSkillAction
     private $session;
 
     /**
-     * @var EntityManagerInterface
-     */
-    private $doctrine;
-
-    /**
-     * @var Skill
-     */
-    private $skill;
-
-    /**
      * @var
      */
     private $handler;
@@ -58,24 +48,18 @@ class EditSkillAction
     /**
      * EditSkillAction constructor.
      * @param SessionInterface $session
-     * @param EntityManagerInterface $doctrine
-     * @param Skill $skill
      * @param EditSkillHandler $handler
      * @param FormFactoryInterface $formFactory
      * @param UrlGeneratorInterface $urlGenerator
      */
     public function __construct(
         SessionInterface       $session,
-        EntityManagerInterface $doctrine,
-        Skill                  $skill,
         EditSkillHandler       $handler,
         FormFactoryInterface   $formFactory,
         UrlGeneratorInterface  $urlGenerator
     )
     {
         $this->session      = $session;
-        $this->doctrine     = $doctrine;
-        $this->skill        = $skill;
         $this->handler      = $handler;
         $this->formFactory  = $formFactory;
         $this->urlGenerator = $urlGenerator;
@@ -93,24 +77,19 @@ class EditSkillAction
      */
     public function __invoke(Request $request, EditSkillResponder $responder)
     {
-        $skill = $this->skill;
-
         $form = $this->formFactory
-            ->create(EditSkillType::class, $skill)
+            ->create(EditSkillType::class)
             ->handleRequest($request)
         ;
 
-        if($this->handler->handle($form, $skill))
+        if($this->handler->handle($form))
         {
-            $this->doctrine->persist($skill);
-            $this->doctrine->flush();
-
             $this->session->getFlashBag()
                 ->add('success', 'Compétence ajouté avec succès')
             ;
 
             return new RedirectResponse(
-                $this->urlGenerator->generate('dashboard')
+                $this->urlGenerator->generate('home')
             );
         }
 

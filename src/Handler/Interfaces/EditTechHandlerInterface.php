@@ -8,11 +8,13 @@
 
 namespace App\Handler\Interfaces;
 
-
-use App\Entity\Tech;
 use Symfony\Component\Form\FormInterface;
 
 interface EditTechHandlerInterface
 {
-    public function handle(FormInterface $form, Tech $tech):bool;
+    /**
+     * @param FormInterface $form
+     * @return bool
+     */
+    public function handle(FormInterface $form):bool;
 }

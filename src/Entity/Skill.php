@@ -8,7 +8,6 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 class Skill
@@ -29,43 +28,17 @@ class Skill
     private $level;
 
     /**
-     * @return int
-     */
-    public function getId() :int
-    {
-        return $this->id;
-    }
-
-    /**
+     * Skill constructor.
      * @param string $name
-     */
-    public function setName(string $name) :void
-    {
-        $this->name = $name;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getName() :?string
-    {
-        return $this->name;
-    }
-
-    /**
      * @param int $level
      */
-    public function setLevel(int $level) :void
+    public function __construct(
+        string $name,
+        int    $level
+    )
     {
+        $this->name  = $name;
         $this->level = $level;
-    }
-
-    /**
-     * @return int|null
-     */
-    public function getLevel() :?int
-    {
-        return $this->level;
     }
 
 }
