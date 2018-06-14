@@ -24,6 +24,8 @@ class EditProjectHandler implements EditProjectHandlerInterface
     {
         if($form->isSubmitted() && $form->isValid())
         {
+            $project->setPictRef('mlmllml');
+            $project->setAddedOn('Y-m-d');
             return true;
         }
 

@@ -1,5 +1,34 @@
 {% extends "base.html.twig" %}
 
-{% block body %}
-
-{% endblock %}
+    {% block body %}
+        {{ form_start(form) }}
+        <div>
+            {{ form_label(form.name) }}
+            {{ form_widget(form.name) }}
+            {{ form_errors(form.name) }}
+        </div>
+        <div>
+            {{ form_label(form.pictRef) }}
+            {{ form_widget(form.pictRef) }}
+            {{ form_errors(form.pictRef) }}
+        </div>
+        <div>
+            {{ form_label(form.description) }}
+            {{ form_widget(form.description) }}
+            {{ form_errors(form.description) }}
+        </div>
+        <div>
+            {{ form_label(form.link) }}
+            {{ form_widget(form.link) }}
+            {{ form_errors(form.link) }}
+        </div>
+        <div>
+            {{ form_label(form.techs) }}
+            {{ form_widget(form.techs) }}
+            {{ form_errors(form.techs) }}
+        </div>
+        <div>
+            <button type="submit">Valider</button>
+        </div>
+        {{ form_end(form) }}
+    {% endblock %}

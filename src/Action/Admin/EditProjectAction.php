@@ -105,7 +105,7 @@ class EditProjectAction
            $this->doctrine->persist($project);
            $this->doctrine->flush();
 
-           $this->session->getFalshBag()
+           $this->session->getFlashBag()
                ->add('succes', 'Projet ajouté avec sudcés')
            ;
 
