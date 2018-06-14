@@ -13,9 +13,7 @@ namespace App\Handler;
 
 use App\Entity\Skill;
 use App\Handler\Interfaces\EditSkillHandlerInterface;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\FormInterface;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class EditSkillHandler implements EditSkillHandlerInterface
 {

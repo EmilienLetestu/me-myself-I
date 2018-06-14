@@ -13,12 +13,15 @@ use App\Entity\Tech;
 use App\Form\Type\EditTechType;
 use App\Handler\Interfaces\EditTechHandlerInterface;
 use App\Responder\Admin\EditTechResponder;
+
 use Doctrine\ORM\EntityManagerInterface;
+
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\Routing\Annotation\Route;
 
 class EditTechAction
 {
@@ -86,6 +89,8 @@ class EditTechAction
      * @throws \Twig_Error_Loader
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
+     *
+     * @Route("edit-tech", name="editTech")
      */
     public function __invoke(Request $request, EditTechResponder $responder)
     {
