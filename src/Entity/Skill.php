@@ -41,4 +41,28 @@ class Skill
         $this->level = $level;
     }
 
+    /**
+     * @return int
+     */
+    public function getId() :int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getName() :?string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getLevel() :?int
+    {
+        return $this->level;
+    }
+
 }

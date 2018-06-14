@@ -8,6 +8,8 @@
 
 namespace App\Form\Type;
 
+use App\DTO\EditProjectDTO;
+
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -15,6 +17,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class EditProjectType extends AbstractType
@@ -54,7 +57,15 @@ class EditProjectType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => 'App\Entity\Project'
+            'data_class' => EditProjectDTO::class,
+            'empty_data' => function(FormInterface $form){
+                return new EditProjectDTO(
+                    $form->get('name')->getData(),
+                    $form->get('description')->getData(),
+                    $form->get('link')->getData(),
+                    $form->get('techs')->getData()
+                );
+            }
         ]);
     }
 }

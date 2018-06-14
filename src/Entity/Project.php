@@ -49,19 +49,37 @@ class Project
     private $link;
 
     /**
+     * Project constructor.
+     * @param string $name
+     * @param string $addedOn
+     * @param string $pictRef
+     * @param string $description
+     * @param string $link
+     * @param Tech $techs
+     */
+    public function __construct(
+        string $name,
+        string $addedOn,
+        string $pictRef,
+        string $description,
+        string $link,
+        ArrayCollection $techs
+    )
+    {
+        $this->name = $name;
+        $this->addedOn = new \DateTime(date($addedOn));
+        $this->pictRef = $pictRef;
+        $this->description = $description;
+        $this->link = $link;
+        $this->techs = $techs;
+    }
+
+    /**
      * @return int
      */
     public function getId() :int
     {
         return $this->id;
-    }
-
-    /**
-     * @param string $name
-     */
-    public function setName(string $name) :void
-    {
-        $this->name = $name;
     }
 
     /**
@@ -73,28 +91,11 @@ class Project
     }
 
     /**
-     * @param string $format
-     */
-    public function setAddedOn(string $format) :void
-    {
-        $this->addedOn = new \DateTime(date($format));
-    }
-
-
-    /**
      * @return \DateTime|null
      */
     public function getAddedOn() :?\DateTime
     {
         return $this->addedOn;
-    }
-
-    /**
-     * @param mixed $pictRef
-     */
-    public function setPictRef(string $pictRef) :void
-    {
-        $this->pictRef = $pictRef;
     }
 
     /**
@@ -106,27 +107,11 @@ class Project
     }
 
     /**
-     * @param mixed $description
-     */
-    public function setDescription(string $description) :void
-    {
-        $this->description = $description;
-    }
-
-    /**
      * @return null|string
      */
     public function getDescription() :?string
     {
         return $this->description;
-    }
-
-    /**
-     * @param string $link
-     */
-    public function setLink(string $link) :void
-    {
-        $this->link = $link;
     }
 
     /**
@@ -138,11 +123,11 @@ class Project
     }
 
     /**
-     * Project constructor.
+     * @return ArrayCollection
      */
-    public function __construct()
+    public function getTechs() :ArrayCollection
     {
-        $this->techs = new ArrayCollection();
+         return $this->techs;
     }
 
     /**
@@ -150,23 +135,6 @@ class Project
      */
     public function addTech(Tech $tech)
     {
-        $this->techs[] = $tech;
+        $this->techs = $tech;
     }
-
-    /**
-     * @param Tech $tech
-     */
-    public function removeTech(Tech $tech)
-    {
-        $this->techs->removeElement($tech);
-    }
-
-    /**
-     * @return ArrayCollection
-     */
-    public function getTechs() :ArrayCollection
-    {
-        return $this->techs;
-    }
-
 }

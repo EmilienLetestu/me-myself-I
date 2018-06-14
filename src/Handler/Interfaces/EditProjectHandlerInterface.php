@@ -19,5 +19,5 @@ interface EditProjectHandlerInterface
      * @param Project $project
      * @return bool
      */
-    public function handle(FormInterface $form, Project $project) :bool;
+    public function handle(FormInterface $form) :bool;
 }

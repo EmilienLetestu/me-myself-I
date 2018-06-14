@@ -21,8 +21,28 @@ class Tech
      */
     private $name;
 
+    /**
+     * Tech constructor.
+     * @param string $name
+     */
     public function __construct(string $name)
     {
         $this->name = $name;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId() :int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getName() :?string
+    {
+        return $this->name;
     }
 }
