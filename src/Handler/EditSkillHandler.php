@@ -37,7 +37,7 @@ class EditSkillHandler implements EditSkillHandlerInterface
      */
     public function handle(FormInterface $form): bool
     {
-        if ($form->isSubmitted() && $form->isSubmitted())
+        if ($form->isSubmitted() && $form->isValid())
         {
             $this->skilBuilder->edit(
                 $form->get('name')->getData(),

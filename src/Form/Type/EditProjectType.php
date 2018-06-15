@@ -58,6 +58,7 @@ class EditProjectType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => EditProjectDTO::class,
+            'validation_groups' => 'editProject',
             'empty_data' => function(FormInterface $form){
                 return new EditProjectDTO(
                     $form->get('name')->getData(),

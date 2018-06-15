@@ -1,4 +1,4 @@
-App\validator\EditSkillDTO:
+App\DTO\EditSkillDTO:
     properties:
         name:
             - Length:

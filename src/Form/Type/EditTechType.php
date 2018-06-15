@@ -38,6 +38,7 @@ class EditTechType extends AbstractType
     {
        $resolver->setDefaults([
            'data_class' => EditTechDTO::class,
+           'validation_groups' => 'editTech',
            'empty_data' => function(FormInterface $form){
                 return new EditTechDTO(
                     $form->get('name')->getData()

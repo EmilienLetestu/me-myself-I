@@ -10,7 +10,6 @@ namespace App\Builder;
 
 
 use App\Entity\Project;
-use App\Entity\Tech;
 use Doctrine\Common\Collections\ArrayCollection;
 
 class ProjectBuilder

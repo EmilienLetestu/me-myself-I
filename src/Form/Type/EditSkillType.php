@@ -44,6 +44,7 @@ class EditSkillType extends AbstractType
     {
        $resolver->setDefaults([
            'data_class' => EditSkillDTO::class,
+           'validation_groups' => 'editSkill',
            'empty_data' => function(FormInterface $form){
                 return new EditSkillDTO(
                     $form->get('name')->getData(),
