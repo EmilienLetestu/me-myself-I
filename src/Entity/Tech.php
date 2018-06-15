@@ -8,7 +8,10 @@
 
 namespace App\Entity;
 
-
+/**
+ * Class Tech
+ * @package App\Entity
+ */
 class Tech
 {
     /**
