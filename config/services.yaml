@@ -2,6 +2,7 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'en'
+    projects_pictures_directory: '%kernel.project_dir%/public/uploads/projects'
 
 services:
     # default configuration for services in *this* file
@@ -24,3 +25,6 @@ services:
         resource: '../src/Action'
         tags: ['controller.service_arguments']
 
+    App\Service\FileUploaderService:
+        arguments:
+            $targetDir: '%projects_pictures_directory%'
