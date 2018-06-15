@@ -1,0 +1,27 @@
+App\validator\EditProjectDTO:
+    properties:
+        name:
+            - Length:
+                min: 2
+                max: 100
+                minMessage: 2 caractères minimum
+                maxMessage: 100 caractères minimum
+                groups: [editProject]
+        level:
+            - Range:
+                min: 1O
+                max: 100
+                minMessage: 10% minimum
+                maxMessage: 100% maximum
+                groups: [editProject]
+        pictRef:
+            - File:
+                maxSize: 5000k
+                mimeTypes: [image/jpg, image/png, image/gif]
+                mimeTypesMessage: jpg, jpeg, png et gif uniquement
+                groups: [editProject]
+        link:
+            - Length:
+                max: 255
+                maxMessage: 255 caractères maximum
+                groups: [editProject]

@@ -1,0 +1,9 @@
+App\DTO\EditTechDTO:
+    properties:
+        name:
+            - Length:
+                min: 2
+                max: 100
+                minMessage: 2 caractères minimum
+                maxMessage: 100 caratères maximum
+                groups: [editTech]

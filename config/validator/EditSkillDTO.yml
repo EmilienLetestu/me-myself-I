@@ -1,0 +1,18 @@
+App\validator\EditSkillDTO:
+    properties:
+        name:
+            - Length:
+                min: 2
+                max: 100
+                minMessage: 2 caractères minimum
+                maxMessage: 100 caractères minimum
+                groups: [editSkill]
+        level:
+            - Range:
+                min: 1O
+                max: 100
+                minMessage: 10% minimum
+                maxMessage: 100% maximum
+                groups: [editSkill]
+
+
