@@ -3,25 +3,20 @@
  * Created by PhpStorm.
  * User: emilien
  * Date: 17/06/2018
- * Time: 19:10
+ * Time: 19:43
  */
 
 namespace App\Handler;
 
+
 use App\Builder\EditProjectBuilder;
 use App\Entity\Project;
-use App\Handler\Interfaces\EditProjectHandlerInterface;
 use App\Service\FileUploaderService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\FormInterface;
 
-class EditProjectHandler implements EditProjectHandlerInterface
+class UpdateProjectHandler
 {
-    /**
-     * @var EditProjectBuilder
-     */
-    private $project;
-
     /**
      * @var EntityManagerInterface
      */
@@ -33,7 +28,7 @@ class EditProjectHandler implements EditProjectHandlerInterface
     private $fileUploader;
 
     /**
-     * EditProjectHandler constructor.
+     * UpdateProjectHandler constructor.
      * @param EntityManagerInterface $doctrine
      * @param FileUploaderService $fileUploader
      */
@@ -42,36 +37,44 @@ class EditProjectHandler implements EditProjectHandlerInterface
         FileUploaderService    $fileUploader
     )
     {
-        $this->project        = new Project();
         $this->doctrine       = $doctrine;
         $this->fileUploader   = $fileUploader;
     }
 
     /**
      * @param FormInterface $form
+     * @param Project $project
      * @return bool
      */
-    public function handle(FormInterface $form): bool
+    public function handle(FormInterface $form, Project $project)
     {
         if($form->isSubmitted() && $form->isValid())
         {
-            $fileName = $this->fileUploader->upload(
-                $form->get('pictRef')->getData(),
-                $form->get('name')->getData()
-            );
+            $fileName = $form->get('pictRef')->getData() !== null ?:
 
-            $this->project->setName($form->get('name')->getData());
-            $this->project->setAddedOn('Y-m-d');
-            $this->project->setPictRef($fileName);
-            $this->project->setDescription($form->get('description')->getData());
-            $this->project->setLink($form->get('link')->getData());
+                $this->fileUploader->eraseFileAndReplace(
+                    $form->get('pictRef')->getData(),
+                    $form->get('name')->getData(),
+                    $project->getPictRef()
+                )
+            ;
+
+            $form->get('name')->getData() !== $project->getName() ?:
+               $this->fileUploader->updateFileName($project)
+            ;
+
+            $project->setName($form->get('name')->getData());
+            $project->setAddedOn('Y-m-d');
+            $project->setPictRef($fileName);
+            $project->setDescription($form->get('description')->getData());
+            $project->setLink($form->get('link')->getData());
 
             foreach ($form->get('techs')->getData() as $tech){
 
-                $this->project->addTech($tech);
+                $project->addTech($tech);
             }
 
-            $this->doctrine->persist($this->project);
+            $this->doctrine->persist($project);
             $this->doctrine->flush();
 
             return true;
@@ -79,4 +82,5 @@ class EditProjectHandler implements EditProjectHandlerInterface
 
         return false;
     }
+
 }

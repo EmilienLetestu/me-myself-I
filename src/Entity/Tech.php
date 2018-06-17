@@ -25,10 +25,9 @@ class Tech
     private $name;
 
     /**
-     * Tech constructor.
      * @param string $name
      */
-    public function __construct(string $name)
+    public function setName(string $name) :void
     {
         $this->name = $name;
     }

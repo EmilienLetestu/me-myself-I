@@ -8,8 +8,7 @@
 
 namespace App\Handler;
 
-
-use App\Builder\TechBuilder;
+use App\Entity\Tech;
 use App\Handler\Interfaces\EditTechHandlerInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\FormInterface;
@@ -17,9 +16,9 @@ use Symfony\Component\Form\FormInterface;
 class EditTechHandler implements EditTechHandlerInterface
 {
     /**
-     * @var TechBuilder
+     * @var Tech
      */
-    private $techBuilder;
+    private $tech;
 
     /**
      * @var EntityManagerInterface
@@ -27,11 +26,10 @@ class EditTechHandler implements EditTechHandlerInterface
     private $doctrine;
 
     public function __construct(
-        TechBuilder $techBuilder,
         EntityManagerInterface $doctrine
     )
     {
-        $this->techBuilder = $techBuilder;
+        $this->tech        = new Tech();
         $this->doctrine    = $doctrine;
     }
 
@@ -43,11 +41,11 @@ class EditTechHandler implements EditTechHandlerInterface
     {
         if($form->isSubmitted() && $form->isValid())
         {
-            $this->techBuilder->edit(
+            $this->tech->setName(
                 $form->get('name')->getData()
             );
 
-            $this->doctrine->persist($this->techBuilder->getTech());
+            $this->doctrine->persist($this->tech);
             $this->doctrine->flush();
 
 

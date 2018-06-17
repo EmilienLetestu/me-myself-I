@@ -8,27 +8,29 @@
 
 namespace App\Handler;
 
-
-
-
-use App\Builder\SkillBuilder;
+use App\Entity\Skill;
 use App\Handler\Interfaces\EditSkillHandlerInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\FormInterface;
 
 class EditSkillHandler implements EditSkillHandlerInterface
 {
-    private $skilBuilder;
-
+    /**
+     * @var EntityManagerInterface
+     */
     private $doctrine;
 
+    /**
+     * @var Skill
+     */
+    private $skill;
+
     public function __construct(
-        SkillBuilder           $skillBuilder,
         EntityManagerInterface $doctrine
     )
     {
-        $this->skilBuilder = $skillBuilder;
-        $this->doctrine    = $doctrine;
+        $this->doctrine     = $doctrine;
+        $this->skill        = new Skill();
     }
 
     /**
@@ -39,13 +41,16 @@ class EditSkillHandler implements EditSkillHandlerInterface
     {
         if ($form->isSubmitted() && $form->isValid())
         {
-            $this->skilBuilder->edit(
-                $form->get('name')->getData(),
+            $this->skill->setName(
+                $form->get('name')->getData()
+            );
+
+            $this->skill->setLevel(
                 $form->get('level')->getData()
             );
 
             $this->doctrine->persist(
-                $this->skilBuilder->getSkill()
+                $this->skill
             );
 
             $this->doctrine->flush();

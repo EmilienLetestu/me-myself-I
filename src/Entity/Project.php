@@ -49,29 +49,43 @@ class Project
     private $link;
 
     /**
-     * Project constructor.
      * @param string $name
-     * @param string $addedOn
-     * @param string $pictRef
-     * @param string $description
-     * @param string $link
-     * @param Tech $techs
      */
-    public function __construct(
-        string $name,
-        string $addedOn,
-        string $pictRef,
-        string $description,
-        string $link,
-        ArrayCollection $techs
-    )
+    public function setName(string $name) :void
     {
         $this->name = $name;
+    }
+
+    /**
+     * @param string $addedOn
+     */
+    public function setAddedOn(string $addedOn): void
+    {
         $this->addedOn = new \DateTime(date($addedOn));
+    }
+
+    /**
+     * @param string $pictRef
+     */
+    public function setPictRef(string $pictRef): void
+    {
         $this->pictRef = $pictRef;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription(string $description): void
+    {
         $this->description = $description;
+    }
+
+    /**
+     * @param string $link
+     */
+    public function setLink(string $link): void
+    {
         $this->link = $link;
-        $this->techs = $techs;
     }
 
     /**
@@ -122,6 +136,11 @@ class Project
         return $this->link;
     }
 
+    public function __construct()
+    {
+        $this->techs = new ArrayCollection();
+    }
+
     /**
      * @return ArrayCollection
      */
@@ -132,9 +151,12 @@ class Project
 
     /**
      * @param Tech $tech
+     * @return $this
      */
     public function addTech(Tech $tech)
     {
-        $this->techs = $tech;
+        $this->techs[] = $tech;
+
+        return $this;
     }
 }

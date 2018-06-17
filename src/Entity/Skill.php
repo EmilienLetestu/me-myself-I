@@ -27,17 +27,20 @@ class Skill
      */
     private $level;
 
+
     /**
-     * Skill constructor.
      * @param string $name
+     */
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
+
+    /**
      * @param int $level
      */
-    public function __construct(
-        string $name,
-        int    $level
-    )
+    public function setLevel(int $level): void
     {
-        $this->name  = $name;
         $this->level = $level;
     }
 
