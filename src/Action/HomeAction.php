@@ -25,7 +25,6 @@ class HomeAction
      */
     public function __invoke(HomeResponder $responder) :Response
     {
-
        return $responder('Test');
     }
 }

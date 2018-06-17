@@ -18,7 +18,7 @@ use Symfony\Component\Form\FormInterface;
 class EditProjectHandler implements EditProjectHandlerInterface
 {
     /**
-     * @var EditProjectBuilder
+     * @var Project
      */
     private $project;
 
