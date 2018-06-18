@@ -35,7 +35,7 @@ class Tech
     /**
      * @return int
      */
-    public function getId() :int
+    public function getId(): int
     {
         return $this->id;
     }
@@ -43,7 +43,7 @@ class Tech
     /**
      * @return null|string
      */
-    public function getName() :?string
+    public function getName():? string
     {
         return $this->name;
     }

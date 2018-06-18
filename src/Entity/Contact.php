@@ -8,7 +8,10 @@
 
 namespace App\Entity;
 
-
+/**
+ * Class Contact
+ * @package App\Entity
+ */
 class Contact
 {
     /**
@@ -37,7 +40,7 @@ class Contact
     private $contactedOn;
 
     /**
-     * @var 
+     * @var
      */
     private $message;
 
@@ -81,35 +84,49 @@ class Contact
         $this->message = $message;
     }
 
-
+    /**
+     * @return int
+     */
     public function getId(): int
     {
         return $this->id;
     }
 
-
+    /**
+     * @return string
+     */
     public function getFullName(): string
     {
         return $this->fullName;
     }
 
-
+    /**
+     * @return string
+     */
     public function getEmail(): string
     {
         return $this->email;
     }
 
+    /**
+     * @return string
+     */
     public function getSubject(): string
     {
         return $this->subject;
     }
 
-
+    /**
+     * @return \DateTime
+     */
     public function getContactedOn(): \DateTime
     {
         return $this->contactedOn;
     }
 
+    /**
+     * @return string
+     */
     public function getMessage(): string
     {
         return $this->message;

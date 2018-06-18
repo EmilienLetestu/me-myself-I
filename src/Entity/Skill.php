@@ -10,6 +10,10 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * Class Skill
+ * @package App\Entity
+ */
 class Skill
 {
     /**
@@ -47,7 +51,7 @@ class Skill
     /**
      * @return int
      */
-    public function getId() :int
+    public function getId(): int
     {
         return $this->id;
     }
@@ -55,7 +59,7 @@ class Skill
     /**
      * @return null|string
      */
-    public function getName() :?string
+    public function getName():? string
     {
         return $this->name;
     }
@@ -63,7 +67,7 @@ class Skill
     /**
      * @return int|null
      */
-    public function getLevel() :?int
+    public function getLevel():? int
     {
         return $this->level;
     }

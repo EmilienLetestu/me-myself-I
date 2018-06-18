@@ -9,8 +9,11 @@
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * Class Project
+ * @package App\Entity
+ */
 class Project
 {
     /**
@@ -51,7 +54,7 @@ class Project
     /**
      * @param string $name
      */
-    public function setName(string $name) :void
+    public function setName(string $name): void
     {
         $this->name = $name;
     }
@@ -91,7 +94,7 @@ class Project
     /**
      * @return int
      */
-    public function getId() :int
+    public function getId(): int
     {
         return $this->id;
     }
@@ -99,7 +102,7 @@ class Project
     /**
      * @return null|string
      */
-    public function getName() :?string
+    public function getName():? string
     {
         return $this->name;
     }
@@ -107,7 +110,7 @@ class Project
     /**
      * @return \DateTime|null
      */
-    public function getAddedOn() :?\DateTime
+    public function getAddedOn():? \DateTime
     {
         return $this->addedOn;
     }
@@ -115,7 +118,7 @@ class Project
     /**
      * @return null|string
      */
-    public function getPictRef() :?string
+    public function getPictRef():? string
     {
         return $this->pictRef;
     }
@@ -123,7 +126,7 @@ class Project
     /**
      * @return null|string
      */
-    public function getDescription() :?string
+    public function getDescription():? string
     {
         return $this->description;
     }
@@ -131,7 +134,7 @@ class Project
     /**
      * @return null|string
      */
-    public function getLink() :?string
+    public function getLink():? string
     {
         return $this->link;
     }
