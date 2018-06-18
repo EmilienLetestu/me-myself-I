@@ -74,7 +74,6 @@ class UpdateProjectHandler
                 $project->addTech($tech);
             }
 
-            $this->doctrine->persist($project);
             $this->doctrine->flush();
 
             return true;

@@ -144,7 +144,7 @@ class Project
     /**
      * @return ArrayCollection
      */
-    public function getTechs() :ArrayCollection
+    public function getTechs()
     {
          return $this->techs;
     }

@@ -14,5 +14,10 @@ use Symfony\Component\Form\FormInterface;
 
 Interface UpdateProjectHandlerInterface
 {
+    /**
+     * @param FormInterface $form
+     * @param Project $project
+     * @return bool
+     */
     public function handle(FormInterface $form, Project $project) :bool;
 }
