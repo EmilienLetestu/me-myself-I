@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: emilien
- * Date: 17/06/2018
- * Time: 21:58
+ * Date: 18/06/2018
+ * Time: 09:22
  */
 
 namespace App\Responder\Admin;
@@ -11,7 +11,7 @@ namespace App\Responder\Admin;
 
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
-class DeleteSkillResponder
+class DeleteTechResponder
 {
     /**
      * @param string $redirection
