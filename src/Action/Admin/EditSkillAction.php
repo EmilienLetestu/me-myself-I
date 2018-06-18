@@ -69,7 +69,7 @@ class EditSkillAction
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
      *
-     * @Route("edit-skill", name="editSkill")
+     * @Route("/edit/skill", name="editSkill")
      */
     public function __invoke(Request $request, EditSkillResponder $responder)
     {
