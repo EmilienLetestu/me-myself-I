@@ -11,7 +11,7 @@ namespace App\Handler;
 
 use App\Builder\EditProjectBuilder;
 use App\Entity\Project;
-use App\Service\FileUploaderService;
+use App\Service\FileService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\FormInterface;
 
@@ -23,22 +23,22 @@ class UpdateProjectHandler
     private $doctrine;
 
     /**
-     * @var FileUploaderService
+     * @var FileService
      */
-    private $fileUploader;
+    private $fileService;
 
     /**
      * UpdateProjectHandler constructor.
      * @param EntityManagerInterface $doctrine
-     * @param FileUploaderService $fileUploader
+     * @param FileService $fileService
      */
     public function __construct(
         EntityManagerInterface $doctrine,
-        FileUploaderService    $fileUploader
+        FileService            $fileService
     )
     {
         $this->doctrine       = $doctrine;
-        $this->fileUploader   = $fileUploader;
+        $this->fileService    = $fileService;
     }
 
     /**
@@ -52,7 +52,7 @@ class UpdateProjectHandler
         {
             $fileName = $form->get('pictRef')->getData() !== null ?:
 
-                $this->fileUploader->eraseFileAndReplace(
+                $this->fileService->eraseFileAndReplace(
                     $form->get('pictRef')->getData(),
                     $form->get('name')->getData(),
                     $project->getPictRef()
@@ -60,7 +60,7 @@ class UpdateProjectHandler
             ;
 
             $form->get('name')->getData() !== $project->getName() ?:
-               $this->fileUploader->updateFileName($project)
+               $this->fileService->updateFileName($project)
             ;
 
             $project->setName($form->get('name')->getData());

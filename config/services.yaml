@@ -25,6 +25,6 @@ services:
         resource: '../src/Action'
         tags: ['controller.service_arguments']
 
-    App\Service\FileUploaderService:
+    App\Service\FileService:
         arguments:
             $targetDir: '%projects_pictures_directory%'

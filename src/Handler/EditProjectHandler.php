@@ -11,7 +11,7 @@ namespace App\Handler;
 use App\Builder\EditProjectBuilder;
 use App\Entity\Project;
 use App\Handler\Interfaces\EditProjectHandlerInterface;
-use App\Service\FileUploaderService;
+use App\Service\FileService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\FormInterface;
 
@@ -28,23 +28,23 @@ class EditProjectHandler implements EditProjectHandlerInterface
     private $doctrine;
 
     /**
-     * @var FileUploaderService
+     * @var FileService
      */
-    private $fileUploader;
+    private $fileService;
 
     /**
      * EditProjectHandler constructor.
      * @param EntityManagerInterface $doctrine
-     * @param FileUploaderService $fileUploader
+     * @param FileService $fileService
      */
     public function __construct(
         EntityManagerInterface $doctrine,
-        FileUploaderService    $fileUploader
+        FileService            $fileService
     )
     {
         $this->project        = new Project();
         $this->doctrine       = $doctrine;
-        $this->fileUploader   = $fileUploader;
+        $this->fileService    = $fileService;
     }
 
     /**
@@ -55,7 +55,7 @@ class EditProjectHandler implements EditProjectHandlerInterface
     {
         if($form->isSubmitted() && $form->isValid())
         {
-            $fileName = $this->fileUploader->upload(
+            $fileName = $this->fileService->upload(
                 $form->get('pictRef')->getData(),
                 $form->get('name')->getData()
             );
