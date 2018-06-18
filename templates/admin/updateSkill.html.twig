@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+    {% block body %}
+
+        {{ form_start(form) }}
+        <div>
+            {{ form_label(form.name) }}
+            {{ form_errors(form.name) }}
+            {{ form_widget(form.name) }}
+            <input type="hidden" value="{{ skill.name }}">
+        </div>
+        <div>
+            {{ form_label(form.level) }}
+            {{ form_errors(form.level) }}
+            {{ form_widget(form.level) }}
+            <input type="hidden" value="{{ skill.level }}">
+        </div>
+        <div>
+            <button type="submit">Valider</button>
+        </div>
+        {{ form_end(form) }}
+
+    {% endblock %}
