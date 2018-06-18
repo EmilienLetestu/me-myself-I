@@ -8,13 +8,9 @@
 
 namespace App\Action\Admin;
 
-
-use App\Entity\Skill;
 use App\Form\Type\EditSkillType;
 use App\Handler\EditSkillHandler;
 use App\Responder\Admin\EditSkillResponder;
-
-use Doctrine\ORM\EntityManagerInterface;
 
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;

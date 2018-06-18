@@ -8,13 +8,9 @@
 
 namespace App\Action\Admin;
 
-
-use App\Entity\Tech;
 use App\Form\Type\EditTechType;
 use App\Handler\Interfaces\EditTechHandlerInterface;
 use App\Responder\Admin\EditTechResponder;
-
-use Doctrine\ORM\EntityManagerInterface;
 
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -46,17 +42,12 @@ class EditTechAction
     private $handler;
 
 
-
-
-
     /**
      * EditTechAction constructor.
      * @param SessionInterface $session
      * @param FormFactoryInterface $formFactory
      * @param UrlGeneratorInterface $urlGenerator
      * @param EditTechHandlerInterface $handler
-     * @param EntityManagerInterface $doctrine
-     * @param Tech $tech
      */
     public function __construct(
         SessionInterface         $session,

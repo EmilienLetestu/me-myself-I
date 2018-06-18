@@ -11,14 +11,14 @@ namespace App\Action\Admin;
 
 use App\Form\Type\EditProjectType;
 use App\Handler\EditProjectHandler;
-
 use App\Responder\Admin\EditProjectResponder;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\Routing\Annotation\Route;
 
 class EditProjectAction
 {

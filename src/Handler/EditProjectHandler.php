@@ -8,7 +8,6 @@
 
 namespace App\Handler;
 
-use App\Builder\EditProjectBuilder;
 use App\Entity\Project;
 use App\Handler\Interfaces\EditProjectHandlerInterface;
 use App\Service\FileService;
