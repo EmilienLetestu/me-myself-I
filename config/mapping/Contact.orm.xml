@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<doctrine-mapping
+        xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+        http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity name="App\Entity\Contact"
+            repository-class="App\Repository\Contact\Repository">
+        <id name="id" type="integer">
+            <generator strategy="AUTO"/>
+        </id>
+        <field name="fullName" type="string" length="150" column="full_name"/>
+        <field name="email" type="string" length="200" column="email"/>
+        <field name="subject" type="string" length="80" column="subject"/>
+        <field name="contactedOn" type="date" column="contacted_on"/>
+        <field name="message" type="text" column="message"/>
+    </entity>
+</doctrine-mapping>
