@@ -18,3 +18,9 @@ App\DTO\EditProjectDTO:
                 max: 255
                 maxMessage: 255 caractères maximum
                 groups: [editProject]
+        description:
+            - App\Validator\CountWord:
+                min: 10
+                max: 50
+                groups: [editProject]
+

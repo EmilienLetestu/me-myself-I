@@ -1,0 +1,27 @@
+App\DTO\ContactDTO:
+    properties:
+        fullname:
+            - Length:
+                min: 5
+                max: 150
+                minMessage: 5 caractères minimum
+                maxMessage: 150 caractères maximum
+                groups: [contact]
+        email:
+            - Email:
+                mode: html5
+                message: Veuillez fournir un email valide
+                groups: [contact]
+        subject:
+            - Length:
+                min: 3
+                max: 80
+                minMessage: 3 caractères minimum
+                maxMessage: 80 caractères maximum
+                groups: [contact]
+        message:
+            - App\Validators\CountWord:
+                min: 10
+                max: 300
+                groups: [contact]
+
