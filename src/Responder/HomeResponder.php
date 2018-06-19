@@ -24,23 +24,29 @@ class HomeResponder
      * HomeResponder constructor.
      * @param Environment $twig
      */
-    public function __construct(Environment $twig)
+    public function __construct(
+        Environment $twig
+    )
     {
         $this->twig = $twig;
     }
 
     /**
      * @param FormView $form
+     * @param array $skillList
+     * @param array $projectList
      * @return Response
      * @throws \Twig_Error_Loader
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
      */
-    public function __invoke(FormView $form):Response
+    public function __invoke(FormView $form, array $skillList, array $projectList):Response
     {
        return new Response(
            $this->twig->render('home.html.twig',[
-               'form' => $form,
+               'form'        => $form,
+               'skillList'   => $skillList,
+               'projectList' => $projectList
            ])
        );
     }

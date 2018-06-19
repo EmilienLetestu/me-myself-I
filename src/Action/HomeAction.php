@@ -8,10 +8,13 @@
 
 namespace App\Action;
 
+use App\Entity\Project;
+use App\Entity\Skill;
 use App\Form\Type\ContactType;
 use App\Handler\ContactHandler;
 use App\Responder\HomeResponder;
 
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -43,23 +46,31 @@ class HomeAction
     private $session;
 
     /**
+     * @var EntityManagerInterface
+     */
+    private $doctrine;
+
+    /**
      * HomeAction constructor.
      * @param ContactHandler $handler
      * @param FormFactoryInterface $formFactory
      * @param UrlGeneratorInterface $urlGenerator
      * @param SessionInterface $session
+     * @param EntityManagerInterface $doctrine
      */
     public function __construct(
         ContactHandler        $handler,
         FormFactoryInterface  $formFactory,
         UrlGeneratorInterface $urlGenerator,
-        SessionInterface      $session
+        SessionInterface      $session,
+        EntityManagerInterface $doctrine
     )
     {
         $this->handler      = $handler;
         $this->formFactory  = $formFactory;
         $this->urlGenerator = $urlGenerator;
         $this->session      = $session;
+        $this->doctrine     = $doctrine;
     }
 
     /**
@@ -90,6 +101,12 @@ class HomeAction
            );
        }
 
-       return $responder($form->createView());
+       return $responder(
+           $form->createView(),
+           $this->doctrine->getRepository(Skill::class)->findAllSkill(),
+           $this->doctrine->getRepository(Project::class)->findAllProject()
+           )
+       ;
+
     }
 }

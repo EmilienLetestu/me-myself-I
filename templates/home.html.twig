@@ -23,4 +23,18 @@
             <button type="submit">Valider</button>
         </div>
         {{ form_end(form) }}
+
+        {% for project in projectList %}
+            {{ project.name }}
+            {{ project.addedOn|date('m-d-Y') }}
+            {{ project.description }}
+                {% for tech in project.techs %}
+                        {{ tech.name }}
+                {% endfor %}
+        {% endfor %}
+
+        {% for skill in skillList %}
+            {{ skill.name }}
+            {{ skill.level }}
+        {% endfor %}
     {% endblock %}
