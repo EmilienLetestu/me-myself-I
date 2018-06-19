@@ -1,7 +1,26 @@
 {% extends "base.html.twig" %}
 
+
     {% block body %}
-
-        <h1>{{ title }}</h1>
-
+        {{ form_start(form) }}
+        <div>
+            {{ form_label(form.fullName) }}
+            {{ form_widget(form.fullName) }}
+        </div>
+        <div>
+            {{ form_label(form.email) }}
+            {{ form_widget(form.email) }}
+        </div>
+        <div>
+            {{ form_label(form.subject) }}
+            {{ form_widget(form.subject) }}
+        </div>
+        <div>
+            {{ form_label(form.message) }}
+            {{ form_widget(form.message) }}
+        </div>
+        <div>
+            <button type="submit">Valider</button>
+        </div>
+        {{ form_end(form) }}
     {% endblock %}

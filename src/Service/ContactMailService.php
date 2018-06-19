@@ -12,7 +12,7 @@ namespace App\Service;
 use App\Entity\Contact;
 use Twig\Environment;
 
-class ContactMail
+class ContactMailService
 {
     /***
      * @var Environment
