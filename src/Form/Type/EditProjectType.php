@@ -46,7 +46,8 @@ class EditProjectType extends AbstractType
             ->add('techs', EntityType::class,[
                 'class' => 'App\Entity\Tech',
                 'choice_label' => 'name',
-                'multiple'     => true
+                'multiple'     => true,
+                'expanded'     => true
             ])
         ;
     }
