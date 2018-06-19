@@ -20,7 +20,7 @@ App\DTO\ContactDTO:
                 maxMessage: 80 caractères maximum
                 groups: [contact]
         message:
-            - App\Validators\CountWord:
+            - App\Validator\CountWord:
                 min: 10
                 max: 300
                 groups: [contact]
