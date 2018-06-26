@@ -43,7 +43,7 @@ class SkillRepository extends ServiceEntityRepository
      * @return Skill
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function findSkillWithId(int $id) :Skill
+    public function findSkillWithId(int $id) :?Skill
     {
         return
             $queryBuilder = $this->createQueryBuilder('s')
@@ -59,7 +59,7 @@ class SkillRepository extends ServiceEntityRepository
      * @return Skill
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function findSkillWithName(string $name) :Skill
+    public function findSkillWithName(string $name) :?Skill
     {
         return
             $queryBuilder = $this->createQueryBuilder('s')

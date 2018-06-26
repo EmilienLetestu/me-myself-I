@@ -41,7 +41,7 @@ class ProjectRepository extends ServiceEntityRepository
      * @return Project
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function findProjectWithId(int $id) :Project
+    public function findProjectWithId(int $id) :?Project
     {
         return
             $queryBuilder = $this->createQueryBuilder('p')
@@ -57,7 +57,7 @@ class ProjectRepository extends ServiceEntityRepository
      * @return Project
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function findProjectWithName(string $name) :Project
+    public function findProjectWithName(string $name) :?Project
     {
         return
             $queryBuilder = $this->createQueryBuilder('p')
