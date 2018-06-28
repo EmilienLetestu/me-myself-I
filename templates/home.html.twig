@@ -25,13 +25,26 @@
         {{ form_end(form) }}
 
         {% for project in projectList %}
-            {{ project.name }}
-            {{ project.addedOn|date('m-d-Y') }}
-            {{ project.description }}
-                {% for tech in project.techs %}
-                        {{ tech.name }}
-                {% endfor %}
+        <div class="row">
+            <div class="col s12 m7">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="{{ asset('../uploads/projects/d2_pict.png') }}">
+                        <span class="card-title"> {{ project.name }}</span>
+                    </div>
+                    <div class="card-content">
+                        <p> {{ project.description }}</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="{{ project.link }}">This is a link</a>
+                    </div>
+                </div>
+            </div>
+        </div>
         {% endfor %}
+
+
+
 
         {% for skill in skillList %}
             {{ skill.name }}
