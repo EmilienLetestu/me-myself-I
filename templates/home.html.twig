@@ -2,6 +2,29 @@
 
 
     {% block body %}
+
+        <div class="row">
+            {% for project in projectList %}
+                <div class="col s7 m3">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="{{ asset('../uploads/projects/d2_pict.png') }}">
+                            <span class="card-title"> {{ project.name }}</span>
+                            <a href="{{ project.link }}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                        </div>
+                        <div class="card-content">
+                            <p> {{ project.description }}</p>
+                        </div>
+                        <div class="card-action">
+                            {% for tech in project.techs %}
+                                {{ tech.name }}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
         {{ form_start(form) }}
         <div>
             {{ form_label(form.fullName) }}
@@ -24,30 +47,6 @@
         </div>
         {{ form_end(form) }}
 
-        {% for project in projectList %}
-        <div class="row">
-            <div class="col s12 m7">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="{{ asset('../uploads/projects/d2_pict.png') }}">
-                        <span class="card-title"> {{ project.name }}</span>
-                    </div>
-                    <div class="card-content">
-                        <p> {{ project.description }}</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="{{ project.link }}">This is a link</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
 
 
-
-
-        {% for skill in skillList %}
-            {{ skill.name }}
-            {{ skill.level }}
-        {% endfor %}
     {% endblock %}
