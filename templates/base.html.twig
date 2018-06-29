@@ -6,11 +6,31 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
         <link rel="stylesheet" href="{{ asset('build/app.css') }}">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo">Logo</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger" id="trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="">A propos de moi</a></li>
+                <li><a href="">Compétences</a></li>
+                <li><a href="">Réalisations</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+        <li><a href="">A propos de moi</a></li>
+        <li><a href="">Compétences</a></li>
+        <li><a href="">Réalisations</a></li>
+        <li><a href="">Contact</a></li>
+    </ul>
 
         {% for label, messages in app.flashes(['denied','error','success','warning','welcome']) %}
             {% for message in messages %}
@@ -21,6 +41,8 @@
         {% endfor %}
 
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+            <script type="text/javascript" src="{{ asset('build/app.js') }}"></script>
+        {% endblock %}
     </body>
 </html>
