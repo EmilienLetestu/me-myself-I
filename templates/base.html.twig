@@ -21,6 +21,7 @@
                 <li><a href="">Compétences</a></li>
                 <li><a href="">Réalisations</a></li>
                 <li><a href="">Contact</a></li>
+                <li><a href="{{ path('editProject') }}">Ajouter un projet</a></li>
             </ul>
         </div>
     </nav>
@@ -30,6 +31,7 @@
         <li><a href="">Compétences</a></li>
         <li><a href="">Réalisations</a></li>
         <li><a href="">Contact</a></li>
+        <li><a href="{{ path('editProject') }}">Ajouter un projet</a></li>
     </ul>
 
         {% for label, messages in app.flashes(['denied','error','success','warning','welcome']) %}
