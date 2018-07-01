@@ -1,6 +1,84 @@
+
+
 [type="checkbox"]:not(:checked),
 [type="checkbox"]:checked {
     position: initial;
     opacity: 100;
     pointer-events: auto;
 }
+
+.top-img{
+    height: 400px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+
+.social{
+    display: flex;
+    justify-content: space-around;
+}
+
+.social-list{
+    font-size: 2rem;
+    position: relative;
+}
+
+.social-list:first-child{
+    left: 13rem;
+}
+
+.social-list:nth-child(2){
+    right: 13rem;
+}
+
+i.line-height-0{
+    line-height: inherit;
+    color: #1de9b6;
+}
+
+#contact-form div{
+    padding-top: 2rem;
+}
+
+#contact_message{
+    margin-top: 2rem;
+}
+
+textarea{
+    height: 10rem;
+}
+
+#intro {
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 960px;
+    position: relative;
+    color: #ffffff;
+}
+
+.imgText h1{
+    padding-top: 10%;
+}
+
+#speech{
+    position: relative;
+    top: 5rem;
+    left: 9rem;
+    padding-left: 5%;
+    padding-right: 5%;
+    width: 80%;
+    text-align: center;
+}
+
+#speech p{
+    text-align: justify;
+    padding: 2rem;
+}
+
+
+
+
