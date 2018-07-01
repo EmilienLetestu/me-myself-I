@@ -1,8 +1,8 @@
 require('../css/app.css');
 
 document.addEventListener('DOMContentLoaded', function() {
-    let elems = document.querySelectorAll('.sidenav');
-    let instances = M.Sidenav.init(elems);
+    let nav = document.querySelectorAll('.sidenav');
+    let initNav = M.Sidenav.init(nav);
 });
 
 
