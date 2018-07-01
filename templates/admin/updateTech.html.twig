@@ -1,16 +1,22 @@
 {% extends 'base.html.twig' %}
 
     {% block body %}
+        <div class="container form-container">
+            <div class="col s12 m12">
+                {{ form_start(form) }}
+                <div>
+                    {{ form_label(form.name) }}
+                    {{ form_widget(form.name) }}
+                    <input type="hidden" value="{{ tech.name }}">
+                </div>
+                <div>
+                    <button class="btn waves-effect waves-light" type="submit"><i class="material-icons right">send
+                        </i>Valider
+                    </button>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
 
-        {{ form_start(form) }}
-        <div>
-            {{ form_label(form.name) }}
-            {{ form_widget(form.name) }}
-            <input type="hidden" value="{{ tech.name }}">
-        </div>
-        <div>
-            <button type="submit">Valider</button>
-        </div>
-        {{ form_end(form) }}
 
     {% endblock %}

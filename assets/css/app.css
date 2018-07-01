@@ -1,3 +1,12 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
 
 .brand-logo{
     font-family: 'Roboto Slab', serif;
@@ -42,12 +51,18 @@ i.line-height-0{
     color: #1de9b6;
 }
 
-#contact-form div{
+
+form div{
     padding-top: 2rem;
 }
 
-#contact_message{
+#contact_message,
+#edit_project_description{
     margin-top: 2rem;
+}
+
+.form-container{
+    margin-top: 5rem;
 }
 
 textarea{
