@@ -1,4 +1,7 @@
 
+.brand-logo{
+    font-family: 'Roboto Slab', serif;
+}
 
 [type="checkbox"]:not(:checked),
 [type="checkbox"]:checked {
@@ -80,5 +83,8 @@ textarea{
 }
 
 
-
-
+#canvas {
+    display: block;
+    width: 300px;
+    margin: 100px auto;
+}
