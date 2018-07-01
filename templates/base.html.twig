@@ -15,40 +15,41 @@
     </head>
     <body>
 
-    <div class=" navbar-fixed">
-        <nav class="teal lighten-2 navbar-fixed">
-            <div class="nav-wrapper">
-                <a href="#!" class="brand-logo">Emilien Letestu</a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger" id="trigger"><i class="material-icons">menu</i></a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="">A propos de moi</a></li>
-                    <li><a href="">Compétences</a></li>
-                    <li><a href="#project">Réalisations</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="{{ path('editProject') }}">Ajouter un projet</a></li>
-                </ul>
-            </div>
-        </nav>
-
-        <ul class="sidenav" id="mobile-demo">
-            <li><a href="">A propos de moi</a></li>
-            <li><a href="">Compétences</a></li>
-            <li><a href="#project">Réalisations</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="{{ path('editProject') }}">Ajouter un projet</a></li>
-        </ul>
-    </div>
-
-
-        {% for label, messages in app.flashes(['denied','error','success','warning','welcome']) %}
-            {% for message in messages %}
-                <div class="alert alert-{{ label }}" id="backGenerated">
-                    <p>{{ message }}</p>
+        <div class=" navbar-fixed">
+            <nav class="teal lighten-2 navbar-fixed">
+                <div class="nav-wrapper">
+                    <a href="{{ path('home')}}#top" class="brand-logo">Emilien Letestu</a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger" id="trigger"><i class="material-icons">menu</i></a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="">A propos de moi</a></li>
+                        <li><a href="">Compétences</a></li>
+                        <li id="project-link"><a href="#project">Réalisations</a></li>
+                        <li id="contact-link"><a href="#contact">Contact</a></li>
+                        <li><a href="{{ path('editProject') }}">Ajouter un projet</a></li>
+                    </ul>
                 </div>
-            {% endfor %}
-        {% endfor %}
+            </nav>
 
-        {% block body %}{% endblock %}
+            <ul class="sidenav" id="mobile-demo">
+                <li><a href="">A propos de moi</a></li>
+                <li><a href="">Compétences</a></li>
+                <li><a href="#project">Réalisations</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="{{ path('editProject') }}">Ajouter un projet</a></li>
+            </ul>
+        </div>
+
+        <main>
+            {% for label, messages in app.flashes(['denied','error','success','warning','welcome']) %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ label }}" id="backGenerated">
+                        <p>{{ message }}</p>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+
+            {% block body %}{% endblock %}
+        </main>
 
         <footer class="page-footer teal lighten-2">
             <div class="container" style="text-align: center">

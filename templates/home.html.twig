@@ -2,14 +2,13 @@
 
 
     {% block body %}
-
-        <div class="top-img" style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('{{ asset('../uploads/home.jpg') }}')">
+        <div id="top" class="top-img col s12 m12" style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('{{ asset('../uploads/home.jpg') }}')">
 
         </div>
 
 
         <div class="container main">
-            <div class="row" id="project">
+            <div class="row section scrollspy projectSection" id="project">
                 {% for project in projectList %}
                     <div class="col s7 m4">
                         <div class="card">
@@ -41,13 +40,13 @@
             </div>
 
             <div class="fixed-action-btn">
-                <a href="{{ path('resumeDwld') }}" class="btn-floating btn-large teal-darken-1">
+                <a href="{{ path('resumeDwld') }}" class="btn-floating btn-large teal-darken-1 tooltipped" data-position="top" data-tooltip="Télécharger mon CV">
                     <i class="large material-icons">cloud_download</i>
                 </a>
             </div>
 
 
-            <div class="row" id="contact">
+            <div class="row section scrollspy" id="contact">
                 <div class="col s12 m12">
                     {{ form_start(form, {'attr': {'id' : 'contact-form'}}) }}
                     <div>

@@ -1,33 +1,40 @@
 {% extends 'base.html.twig' %}
 
  {% block body %}
-     {{ form_start(form) }}
-     <div>
-         {{ form_label(form.name) }}
-         {{ form_widget(form.name) }}
-         <input type="hidden" value="{{ project.name }}">
+     <div class="container form-container">
+         <div class="col s12 m12">
+             {{ form_start(form) }}
+             <div>
+                 {{ form_label(form.name) }}
+                 {{ form_widget(form.name) }}
+                 <input type="hidden" value="{{ project.name }}">
+             </div>
+             <div>
+                 {{ form_label(form.pictRef) }}
+                 {{ form_widget(form.pictRef) }}
+                 <input type="hidden" value="{{ project.pictRef}}">
+             </div>
+             <div>
+                 {{ form_label(form.description) }}
+                 {{ form_widget(form.description) }}
+                 <input type="hidden" value="{{ project.description}}">
+             </div>
+             <div>
+                 {{ form_label(form.link) }}
+                 {{ form_widget(form.link) }}
+                 <input type="hidden" value="{{ project.link}}">
+             </div>
+             <div>
+                 {{ form_label(form.techs) }}
+                 {{ form_widget(form.techs) }}
+             </div>
+             <div>
+                 <button class="btn waves-effect waves-light" type="submit"><i class="material-icons right">send
+                     </i>Valider
+                 </button>
+             </div>
+             {{ form_end(form) }}
+         </div>
      </div>
-     <div>
-         {{ form_label(form.pictRef) }}
-         {{ form_widget(form.pictRef) }}
-         <input type="hidden" value="{{ project.pictRef}}">
-     </div>
-     <div>
-         {{ form_label(form.description) }}
-         {{ form_widget(form.description) }}
-         <input type="hidden" value="{{ project.description}}">
-     </div>
-     <div>
-         {{ form_label(form.link) }}
-         {{ form_widget(form.link) }}
-         <input type="hidden" value="{{ project.link}}">
-     </div>
-     <div>
-         {{ form_label(form.techs) }}
-         {{ form_widget(form.techs) }}
-     </div>
-     <div>
-         <button type="submit">Valider</button>
-     </div>
-     {{ form_end(form) }}
+
  {% endblock %}
