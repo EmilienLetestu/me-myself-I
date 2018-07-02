@@ -11,6 +11,7 @@ namespace App\Entity;
 
 
 
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 class User implements UserInterface
@@ -29,6 +30,7 @@ class User implements UserInterface
      * @var
      */
     private $password;
+
 
     /**
      * @param string $username
