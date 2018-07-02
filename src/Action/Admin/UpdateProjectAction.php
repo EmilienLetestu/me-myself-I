@@ -82,7 +82,7 @@ class UpdateProjectAction
      * @throws \Twig_Error_Syntax
      *
      * * @Route(
-     *     "/update/project/{id}",
+     *     "admin/update/project/{id}",
      *      name = "updateProject",
      *     requirements={"id" = "\d+"}
      * )

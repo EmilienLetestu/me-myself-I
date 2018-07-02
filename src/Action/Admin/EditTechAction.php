@@ -70,7 +70,7 @@ class EditTechAction
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
      *
-     * @Route("/edit/tech", name="editTech")
+     * @Route("admin/edit/tech", name="editTech")
      */
     public function __invoke(Request $request, EditTechResponder $responder)
     {

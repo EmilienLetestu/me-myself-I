@@ -57,9 +57,10 @@ class DeleteSkillAction
      * @param Request $request
      * @param DeleteSkillResponder $responder
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @throws \Doctrine\ORM\NonUniqueResultException
      *
      * @Route(
-     *     "/delete/skill/{id}",
+     *     "admin/delete/skill/{id}",
      *     name = "deleteSkill",
      *     requirements={"id" = "\d+"}
      * )

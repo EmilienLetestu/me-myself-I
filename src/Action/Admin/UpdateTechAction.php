@@ -81,7 +81,7 @@ class UpdateTechAction
      * @throws \Twig_Error_Syntax
      *
      * @Route(
-     *     "/update/tech/{id}",
+     *     "admin/update/tech/{id}",
      *     name = "updateTech",
      *     requirements={"id" = "\d+"}
      * )
