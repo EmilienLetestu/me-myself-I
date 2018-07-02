@@ -82,7 +82,7 @@ class UpdateSkillAction
      * @throws \Twig_Error_Syntax
      *
      * @Route(
-     *     "/update/skill/{id}",
+     *     "admin/update/skill/{id}",
      *     name = "updateSkill",
      *     requirements={"id" = "\d+"}
      * )

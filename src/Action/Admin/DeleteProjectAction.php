@@ -68,7 +68,7 @@ class DeleteProjectAction
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @throws \Doctrine\ORM\NonUniqueResultException
      * @Route(
-     *     "/delete/project/{id}",
+     *     "admin/delete/project/{id}",
      *     name = "deleteProject",
      *     requirements={"id" = "\d+"}
      * )

@@ -57,7 +57,7 @@ class DeleteTechAction
      * @param DeleteTechResponder $responder
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @Route(
-     *     "/delete/tech/{id}",
+     *     "admin/delete/tech/{id}",
      *     name = "deleteTech",
      *     requirements={"id" = "\d+"}
      * )

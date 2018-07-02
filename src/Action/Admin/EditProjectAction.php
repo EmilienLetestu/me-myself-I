@@ -71,7 +71,7 @@ class EditProjectAction
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
      *
-     * @Route("/edit/project", name="editProject")
+     * @Route("admin/edit/project", name="editProject")
      */
     public function __invoke(Request $request, EditProjectResponder $responder)
     {
