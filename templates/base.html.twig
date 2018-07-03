@@ -21,21 +21,26 @@
                     <a href="{{ path('home')}}#top" class="brand-logo">Emilien Letestu</a>
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger" id="trigger"><i class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="">A propos de moi</a></li>
-                        <li><a href="">Compétences</a></li>
-                        <li id="project-link"><a href="#project">Réalisations</a></li>
-                        <li id="contact-link"><a href="#contact">Contact</a></li>
-                        <li><a href="{{ path('editProject') }}">Ajouter un projet</a></li>
+                        <li><a href=""><i class="material-icons">info</i></a></li>
+                        <li><a href=""><i class="material-icons">build</i></a></li>
+                        <li><a href="#project"><i class="material-icons">brush</i></a></li>
+                        <li><a href="#contact"><i class="material-icons">email</i></a></li>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <li><a href="{{ path('editProject') }}"><i class="material-icons">dashboard</i></a></li>
+                        {% endif %}
                     </ul>
                 </div>
             </nav>
 
             <ul class="sidenav" id="mobile-demo">
-                <li><a href="">A propos de moi</a></li>
-                <li><a href="">Compétences</a></li>
-                <li><a href="#project">Réalisations</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="{{ path('editProject') }}">Ajouter un projet</a></li>
+                <li><a href=""><i class="material-icons">info</i></a></li>
+                <li><a href=""><i class="material-icons">build</i></a></li>
+                <li><a href="#project"><i class="material-icons">brush</i></a></li>
+                <li><a href="#contact"><i class="material-icons">email</i></a></li>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <li><a href="{{ path('editProject') }}"><i class="material-icons">dashboard</i></a></li>
+                {% endif %}
+            </ul>
             </ul>
         </div>
 
