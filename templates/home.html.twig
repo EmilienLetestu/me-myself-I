@@ -2,14 +2,16 @@
 
 
     {% block body %}
-        <div id="top" class="top-img col s12 m12" style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('{{ asset('../uploads/home.jpg') }}')">
+        <div class="row">
+            <div id="top" class="top-img col s12" style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('{{ asset('../uploads/home.jpg') }}')">
 
+            </div>
         </div>
 
-        <div class="container main">
+        <div class="container">
 
             <div class="row section scrollspy about-me-section" id="about-me">
-                <div class="col s12 m12">
+                <div class="col s12">
 
                         <h1 class="section-title">A PROPOS DE MOI....</h1>
 
@@ -26,8 +28,8 @@
                 </div>
             </div>
 
-            <div class="row section scrollspy skills-section" id="skills">
-                <div class="col s12 m12">
+            <div class="row skills-section" id="skills">
+                <div class="col s12">
 
                     <h2 class="section-title">MES COMPÉTENCES</h2>
                      <canvas id="canvas" width="300" height="300"></canvas>
@@ -35,9 +37,9 @@
                 </div>
             </div>
 
-            <div class="row section scrollspy" id="project">
+            <div class="row" id="project">
                 {% for project in projectList %}
-                    <div class="col s7 m4">
+                    <div class="col s12 m4">
                         <div class="card">
                             <div class="card-image">
                                 <img src="{{ asset('../uploads/projects/d2_pict.png') }}">
@@ -66,8 +68,8 @@
                 {% endfor %}
             </div>
 
-            <div class="row section scrollspy" id="contact">
-                <div class="col s12 m12">
+            <div class="row" id="contact">
+                <div class="col s12">
                     {{ form_start(form, {'attr': {'id' : 'contact-form'}}) }}
                     <div>
                         {{ form_label(form.fullName) }}

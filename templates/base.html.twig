@@ -15,34 +15,33 @@
     </head>
     <body>
 
-        <div class=" navbar-fixed">
-            <nav class="color-main-lighten navbar-fixed">
-                <div class="nav-wrapper">
-                    <a href="{{ path('home')}}#top" class="brand-logo">Emilien Letestu</a>
-                    <a href="#" data-target="mobile-demo" class="sidenav-trigger" id="trigger"><i class="material-icons">menu</i></a>
-                    <ul class="right hide-on-med-and-down">
-                        <li><a href="#about-me"><i class="material-icons">info</i></a></li>
-                        <li><a href=""><i class="material-icons">build</i></a></li>
-                        <li><a href="#project"><i class="material-icons">brush</i></a></li>
-                        <li><a href="#contact"><i class="material-icons">email</i></a></li>
-                        {% if is_granted('ROLE_ADMIN') %}
-                            <li><a href="{{ path('editProject') }}"><i class="material-icons">dashboard</i></a></li>
-                        {% endif %}
-                    </ul>
-                </div>
-            </nav>
 
-            <ul class="sidenav" id="mobile-demo">
-                <li><a href="#about-me"><i class="material-icons">info</i></a></li>
-                <li><a href=""><i class="material-icons">build</i></a></li>
-                <li><a href="#project"><i class="material-icons">brush</i></a></li>
-                <li><a href="#contact"><i class="material-icons">email</i></a></li>
-                {% if is_granted('ROLE_ADMIN') %}
-                    <li><a href="{{ path('editProject') }}"><i class="material-icons">dashboard</i></a></li>
-                {% endif %}
-            </ul>
-            </ul>
-        </div>
+
+        <nav class="color-main-lighten navbar-fixed">
+            <div class="nav-wrapper">
+                <a href="{{ path('home')}}#top" class="brand-logo">Emilien Letestu</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger" id="trigger"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#about-me"><i class="material-icons">info</i></a></li>
+                    <li><a href=""><i class="material-icons">build</i></a></li>
+                    <li><a href="#project"><i class="material-icons">brush</i></a></li>
+                    <li><a href="#contact"><i class="material-icons">email</i></a></li>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <li><a href="{{ path('editProject') }}"><i class="material-icons">dashboard</i></a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="#about-me"><i class="material-icons">info</i></a></li>
+            <li><a href=""><i class="material-icons">build</i></a></li>
+            <li><a href="#project"><i class="material-icons">brush</i></a></li>
+            <li><a href="#contact"><i class="material-icons">email</i></a></li>
+            {% if is_granted('ROLE_ADMIN') %}
+                <li><a href="{{ path('editProject') }}"><i class="material-icons">dashboard</i></a></li>
+            {% endif %}
+        </ul>
 
         <main>
             {% for label, messages in app.flashes(['denied','error','success','warning','welcome']) %}
