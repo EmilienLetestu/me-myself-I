@@ -39,6 +39,24 @@ main {
     font-family: 'Roboto Slab', serif;
 }
 
+/*----------------------------side navbar------------------------*/
+.sidenav{
+    width: 170px;
+}
+
+
+.sidenav li{
+  padding: 2rem;
+}
+
+.sidenav i{
+    font-size: 3rem;
+}
+
+.sidenav .material-icons{
+    color: #009688 !important;
+}
+
 /*----------------------------footer-------------------------*/
 .social{
     display: flex;
