@@ -6,11 +6,10 @@
 
         </div>
 
-
         <div class="container main">
 
             <div class="row section scrollspy about-me-section" id="about-me">
-                <div class="col s12 m12" id="aboutMe">
+                <div class="col s12 m12">
 
                         <h1 class="section-title">A PROPOS DE MOI....</h1>
 
@@ -24,6 +23,15 @@
                             non accumsan nisl malesuada. Morbi bibendum pharetra ultricies. Mauris dictum hendrerit dictum. Suspendisse vitae elit vitae justo fermentum.
                         </p>
                     </blockquote>
+                </div>
+            </div>
+
+            <div class="row section scrollspy skills-section" id="skills">
+                <div class="col s12 m12">
+
+                    <h2 class="section-title">MES COMPÉTENCES</h2>
+                     <canvas id="canvas" width="300" height="300"></canvas>
+
                 </div>
             </div>
 
@@ -93,7 +101,9 @@
             </div>
 
         </div>
+    {% endblock %}
 
-
-
+    {% block javascripts %}
+        {{ parent() }}
+        <script type="text/javascript" src="{{ asset('build/gauge.js') }}"></script>
     {% endblock %}
