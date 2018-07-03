@@ -30,6 +30,10 @@ main {
     background-color: #26a69a;
 }
 
+.color-border-blockquote{
+    border-left-color: #009688;
+}
+
 /*----------------------------navbar------------------------*/
 .brand-logo{
     font-family: 'Roboto Slab', serif;
@@ -64,6 +68,21 @@ main {
     background-size: cover;
 }
 
+/*----------------------------titles-------------------------*/
+
+.section-title{
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+
+/*-----------------------about me------------------------------*/
+
+.aboutMeSection{
+    text-align: justify;
+    padding-top: 5rem;
+}
 
 /*--------------------------forms-------------------------------*/
 
