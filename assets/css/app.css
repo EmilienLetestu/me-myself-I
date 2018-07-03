@@ -1,3 +1,4 @@
+/*------------------------------wrapper---------------------------*/
 body {
     display: flex;
     min-height: 100vh;
@@ -8,26 +9,33 @@ main {
     flex: 1 0 auto;
 }
 
+/*-------------------------------colors----------------------------*/
+.color-main-lighten{
+    background-color: #4db6ac;
+}
+
+.color-main-darken{
+    background-color: #009688;
+}
+
+.color-action-lighten{
+    background-color: #1de9b6;
+}
+
+.color-action-lighten-icon{
+    color: #1de9b6;
+}
+
+.color-action-darken{
+    background-color: #26a69a;
+}
+
+/*----------------------------navbar------------------------*/
 .brand-logo{
     font-family: 'Roboto Slab', serif;
 }
 
-[type="checkbox"]:not(:checked),
-[type="checkbox"]:checked {
-    position: initial;
-    opacity: 100;
-    pointer-events: auto;
-}
-
-.top-img{
-    height: 400px;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-}
-
-
+/*----------------------------footer-------------------------*/
 .social{
     display: flex;
     justify-content: space-around;
@@ -46,11 +54,26 @@ main {
     right: 13rem;
 }
 
-i.line-height-0{
-    line-height: inherit;
-    color: #1de9b6;
+/*-----------------------home image------------------------------*/
+
+.top-img{
+    height: 400px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
+
+/*--------------------------forms-------------------------------*/
+
+
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+    position: initial;
+    opacity: 100;
+    pointer-events: auto;
+}
 
 form div{
     padding-top: 2rem;
@@ -69,37 +92,10 @@ textarea{
     height: 10rem;
 }
 
-#intro {
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-    min-height: 960px;
-    position: relative;
-    color: #ffffff;
-}
 
-.imgText h1{
-    padding-top: 10%;
-}
-
-#speech{
-    position: relative;
-    top: 5rem;
-    left: 9rem;
-    padding-left: 5%;
-    padding-right: 5%;
-    width: 80%;
-    text-align: center;
-}
-
-#speech p{
-    text-align: justify;
-    padding: 2rem;
-}
+/*--------------------------cards-------------------------------*/
 
 
-#canvas {
-    display: block;
-    width: 300px;
-    margin: 100px auto;
+i.line-height-0{
+    line-height: inherit;
 }
