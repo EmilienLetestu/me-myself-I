@@ -92,6 +92,7 @@ main {
     font-size: 3rem;
     text-align: center;
     margin-bottom: 5rem;
+    margin-top: 5rem;
 }
 
 
@@ -100,6 +101,12 @@ main {
 .aboutMeSection{
     text-align: justify;
     padding-top: 5rem;
+}
+
+/*--------------------------gauge------------------------------*/
+
+.skill-gauge{
+    text-align: center;
 }
 
 /*--------------------------forms-------------------------------*/

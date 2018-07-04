@@ -28,15 +28,18 @@
             </div>
 
             <div class="row skills-section" id="skills">
-                <div class="col s12">
-
                     <h2 class="section-title">MES COMPÉTENCES</h2>
-                     <canvas id="canvas" width="300" height="300"></canvas>
-
-                </div>
+                    {% for skill in skillList %}
+                    <div class="col s12 m4 skill-gauge">
+                        <canvas class="gauge" id="canvas_{{ loop.index }}" width="300" height="300"></canvas>
+                        <h4 class="skill-name">{{ skill.name }}</h4>
+                        <input type="hidden" id="skill_{{ loop.index }}" value="{{ skill.level }}">
+                    </div>
+                    {% endfor %}
             </div>
 
             <div class="row" id="project">
+                <h2 class="section-title">MES RÉALISATIONS</h2>
                 {% for project in projectList %}
                     <div class="col s12 m4">
                         <div class="card">
@@ -68,6 +71,7 @@
             </div>
 
             <div class="row" id="contact">
+                <h2 class="section-title">ME CONTACTER</h2>
                 <div class="col s12">
                     {{ form_start(form, {'attr': {'id' : 'contact-form'}}) }}
                     <div>
