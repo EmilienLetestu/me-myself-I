@@ -107,8 +107,13 @@ main {
 
 .skill-gauge{
     text-align: center;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
 }
 
+.skill-name{
+    font-size: 2rem;
+}
 /*--------------------------forms-------------------------------*/
 
 

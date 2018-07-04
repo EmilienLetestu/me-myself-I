@@ -31,7 +31,7 @@
                     <h2 class="section-title">MES COMPÉTENCES</h2>
                     {% for skill in skillList %}
                     <div class="col s12 m4 skill-gauge">
-                        <canvas class="gauge" id="canvas_{{ loop.index }}" width="300" height="300"></canvas>
+                        <canvas class="gauge" id="canvas_{{ loop.index }}" width="200" height="200"></canvas>
                         <h4 class="skill-name">{{ skill.name }}</h4>
                         <input type="hidden" id="skill_{{ loop.index }}" value="{{ skill.level }}">
                     </div>

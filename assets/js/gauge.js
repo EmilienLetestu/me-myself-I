@@ -1,5 +1,5 @@
 
-const font = '45px Arial';
+const font = '35px Arial';
 const supportCircleColor = "#eaeaea";
 const highLevelColor = "#b9f6ca";
 const mediumLevelColor = "#fff176";
@@ -62,18 +62,18 @@ function drawGauge(canvasList) {
         let text        = (degrees/360)*100 + '%';
         let color       = pickColor((degrees/360)*100);
 
-        //draw full arc
+        //draw circle
         context.beginPath();
         context.strokeStyle = supportCircleColor;
-        context.arc(width/2, height/2, 100, 0, Math.PI*2, false);
-        context.lineWidth = 30;
+        context.arc(width/2, height/2, 80, 0, Math.PI*2, false);
+        context.lineWidth = 27;
         context.stroke();
 
         //draw arc section
         context.beginPath();
         context.strokeStyle = color;
         //deduct 90° from from the angles to start drawing from top end
-        context.arc(width/2, height/2, 100, 0 - 90*Math.PI/180, radians - 90*Math.PI/180, false);
+        context.arc(width/2, height/2, 80, 0 - 90*Math.PI/180, radians - 90*Math.PI/180, false);
         context.shadowColor = '#444444';
         context.shadowBlur = 5;
         context.lineWidth = 30;
