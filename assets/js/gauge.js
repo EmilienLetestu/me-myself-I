@@ -4,7 +4,6 @@ const supportCircleColor = "#eaeaea";
 const highLevelColor = "#b9f6ca";
 const mediumLevelColor = "#fff176";
 const lowLevelColor =   "#ff8a80";
-
 let canvasList = document.getElementsByClassName('gauge');
 
 /**
