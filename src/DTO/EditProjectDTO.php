@@ -42,24 +42,29 @@ class EditProjectDTO
      */
     public $link;
 
+    public $publish;
+
     /**
      * EditProjectDTO constructor.
      * @param string $name
      * @param string $description
      * @param string $link
      * @param ArrayCollection $techs
+     * @param bool $publish
      */
     public function __construct(
         string $name,
         string $description,
         string $link,
-        ArrayCollection $techs
+        ArrayCollection $techs,
+        bool $publish
     )
     {
         $this->name        = $name;
         $this->description = $description;
         $this->link        = $link;
         $this->techs       = $techs;
+        $this->publish     = $publish;
     }
 
 }

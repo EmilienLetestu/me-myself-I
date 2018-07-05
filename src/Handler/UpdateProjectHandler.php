@@ -66,6 +66,7 @@ class UpdateProjectHandler
             $project->setPictRef($fileName);
             $project->setDescription($form->get('description')->getData());
             $project->setLink($form->get('link')->getData());
+            $project->setPublish($form->get('publish')->getData());
 
             foreach ($form->get('techs')->getData() as $tech){
 

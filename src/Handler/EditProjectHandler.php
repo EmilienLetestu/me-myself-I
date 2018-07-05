@@ -64,6 +64,7 @@ class EditProjectHandler implements EditProjectHandlerInterface
             $this->project->setPictRef($fileName);
             $this->project->setDescription($form->get('description')->getData());
             $this->project->setLink($form->get('link')->getData());
+            $this->project->setPublish($form->get('publish')->getData());
 
             foreach ($form->get('techs')->getData() as $tech){
 
