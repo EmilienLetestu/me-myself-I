@@ -25,6 +25,11 @@
                  <input type="hidden" value="{{ project.link}}">
              </div>
              <div>
+                 {{ form_label(form.publish) }}
+                 {{ form_widget(form.publish) }}
+                 <input type="hidden" value={{ project.publish }}>
+             </div>
+             <div>
                  {{ form_label(form.techs) }}
                  {{ form_widget(form.techs) }}
              </div>
