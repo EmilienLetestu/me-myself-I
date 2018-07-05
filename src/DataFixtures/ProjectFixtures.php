@@ -34,7 +34,7 @@ class ProjectFixtures extends Fixture implements DependentFixtureInterface
             $project->setAddedOn('Y-m-d');
             $project->setLink('https://github.com/EmilienLetestu');
             $project->setDescription($this->description);
-
+            $project->setPublish(true);
             $project->addTech($this->getReference(TechFixtures::TECH_REFERENCE));
             $manager->persist($project);
         }

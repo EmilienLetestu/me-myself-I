@@ -52,6 +52,11 @@ class Project
     private $link;
 
     /**
+     * @var
+     */
+    private $publish = false;
+
+    /**
      * @param string $name
      */
     public function setName(string $name): void
@@ -89,6 +94,14 @@ class Project
     public function setLink(string $link): void
     {
         $this->link = $link;
+    }
+
+    /**
+     * @param bool $publish
+     */
+    public function setPublish(bool $publish): void
+    {
+        $this->publish = $publish;
     }
 
     /**
@@ -137,6 +150,14 @@ class Project
     public function getLink():? string
     {
         return $this->link;
+    }
+
+    /**
+     * @return bool|null
+     */
+    public function getPublish():? bool
+    {
+        return $this->publish;
     }
 
     public function __construct()

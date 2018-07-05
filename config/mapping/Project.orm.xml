@@ -14,6 +14,7 @@
         <field name="pictRef" column="pict_ref" type="string" length="50" nullable="true" unique="true"/>
         <field name="description" column="desdription" type="text"/>
         <field name="link" column="link" type="string" length="255" nullable="true"/>
+        <field name="publish" column="publish" type="boolean"/>
         <many-to-many field="techs" target-entity="App\Entity\Tech"/>
     </entity>
 </doctrine-mapping>

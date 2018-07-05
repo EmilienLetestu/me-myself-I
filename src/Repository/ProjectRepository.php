@@ -37,6 +37,22 @@ class ProjectRepository extends ServiceEntityRepository
     }
 
     /**
+     * get all project with a given publication status
+     * @param bool $status
+     * @return array
+     */
+    public function findAllProjectWithStatus(bool $status) :array
+    {
+        return
+            $queryBuilder = $this->createQueryBuilder('p')
+            ->where('p.publish = :publish')
+            ->setParameter('publish', $status)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    /**
      * @param int $id
      * @return Project
      * @throws \Doctrine\ORM\NonUniqueResultException
