@@ -77,6 +77,7 @@
                     <div>
                         {{ form_label(form.fullName) }}
                         {{ form_widget(form.fullName) }}
+                        <span class="validation-feedback"><i class="material-icons" id="contact-fullName-feedback"></i></span>
                     </div>
                     <div>
                         {{ form_label(form.email) }}
@@ -85,10 +86,12 @@
                     <div>
                         {{ form_label(form.subject) }}
                         {{ form_widget(form.subject) }}
+                        <span class="validation-feedback"><i class="material-icons" id="contact-subject-feedback"></i></span>
                     </div>
                     <div>
                         {{ form_label(form.message) }}
                         {{ form_widget(form.message) }}
+                        <span class="validation-feedback"><i class="material-icons" id="contact-message-feedback"></i></span>
                     </div>
                     <div>
                         <button class="btn waves-effect waves-light color-action-darken" type="submit"><i class="material-icons right">send
@@ -111,4 +114,5 @@
     {% block javascripts %}
         {{ parent() }}
         <script type="text/javascript" src="{{ asset('build/createGauge.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('build/validateContact.js') }}"></script>
     {% endblock %}

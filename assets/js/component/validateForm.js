@@ -35,6 +35,19 @@ class ValidateForm {
             feedback.innerHTML = 'close' : feedback.innerHTML = 'check'
         ;
     }
+
+    validateWordCount()
+    {
+        let input      = document.getElementById(this.id);
+        let feedbackId = this.replaceChar;
+        let feedback   = document.getElementById(feedbackId);
+        let trimmed    = input.value.trim();
+        let text       = trimmed.split(' ').length;
+
+        text  < this.min || text > this.max ?
+            feedback.innerHTML = 'close' : feedback.innerHTML = 'check'
+        ;
+    }
 }
 
 export {ValidateForm}
