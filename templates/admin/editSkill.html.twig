@@ -7,10 +7,12 @@
         <div>
             {{ form_label(form.name) }}
             {{ form_widget(form.name) }}
+            <span class="validation-feedback"><i class="material-icons" id="edit-skill-name-feedback"></i></span>
         </div>
         <div>
             {{ form_label(form.level) }}
             {{ form_widget(form.level) }}
+            <span class="validation-feedback"><i class="material-icons" id="edit-skill-level-feedback"></i></span>
         </div>
         <div>
             <button class="btn waves-effect waves-light color-action-darken" type="submit"><i class="material-icons right">send
@@ -20,5 +22,10 @@
         {{ form_end(form) }}
         <div>
     </div>
+    {% endblock %}
+
+    {% block javascripts %}
+        {{ parent() }}
+        <script type="text/javascript" src="{{ asset('build/validateSkillForm.js')}}"></script>
 
     {% endblock %}

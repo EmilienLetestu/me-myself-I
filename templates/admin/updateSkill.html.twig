@@ -8,11 +8,13 @@
                     {{ form_label(form.name) }}
                     {{ form_widget(form.name) }}
                     <input type="hidden" class="current-data" value="{{ skill.name }}">
+                    <span class="validation-feedback"><i class="material-icons" id="edit-skill-name-feedback"></i></span>
                 </div>
                 <div>
                     {{ form_label(form.level) }}
                     {{ form_widget(form.level) }}
                     <input type="hidden" class="current-data" value="{{ skill.level }}">
+                    <span class="validation-feedback"><i class="material-icons" id="edit-skill-level-feedback"></i></span>
                 </div>
                 <div>
                     <button class="btn waves-effect waves-light color-action-darken" type="submit"><i class="material-icons right">send
@@ -26,5 +28,5 @@
 
     {% block javascripts %}
     {{ parent() }}
-        <script type="text/javascript" src="{{ asset('build/updateForms.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('build/validateUpdateSkillForm.js')}}"></script>
     {% endblock %}
