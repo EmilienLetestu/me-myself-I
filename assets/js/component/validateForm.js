@@ -9,57 +9,53 @@ class ValidateForm {
         this.id          = id;
         this.min         = min;
         this.max         = max;
-        this.replaceChar =  this.id.replace(/_/g, '-')
-        this.feedbackId  =  this.replaceChar + '-feedback';
-        this.errorId     =  this.replaceChar + '-error'
+        this.replaceChar = this.id.replace(/_/g, '-');
+        this.feedbackId  = this.replaceChar + '-feedback';
+        this.errorId     = this.replaceChar + '-error';
+        this.input       = document.getElementById(this.id);
+        this.feedback    = document.getElementById(this.feedbackId);
 
     }
 
     validateTextLength()
     {
-        let input      = document.getElementById(this.id);
-        let feedback   = document.getElementById(this.feedbackId);
 
-        input.value.length < this.min || input.value.length > this.max ?
-            feedback.innerHTML = 'close' : feedback.innerHTML = 'check'
+        this.input.value.length < this.min || this.input.value.length > this.max ?
+            this.feedback.innerHTML = 'close' : this.feedback.innerHTML = 'check'
         ;
 
-        this.displayError(feedback, "Entre " + this.min + " et " + this.max + " caratères")
+        this.displayError("Entre " + this.min + " et " + this.max + " caratères")
 
     }
 
     validateInteger()
     {
-        let input      = document.getElementById(this.id);
-        let feedback   = document.getElementById(this.feedbackId);
 
-        input.value < this.min || input.value > this.max ?
-            feedback.innerHTML = 'close' : feedback.innerHTML = 'check'
+        this.input.value < this.min || this.input.value > this.max ?
+            this.feedback.innerHTML = 'close' : this.feedback.innerHTML = 'check'
         ;
 
-        this.displayError(feedback, "Entrez une valeur comprise entre " + this.min + " et " + this.max)
+        this.displayError("Entrez une valeur comprise entre " + this.min + " et " + this.max)
     }
 
     validateWordCount()
     {
-        let input      = document.getElementById(this.id);
-        let feedback   = document.getElementById(this.feedbackId);
-        let trimmed    = input.value.trim();
+        let trimmed    = this.input.value.trim();
         let text       = trimmed.split(' ').length;
 
         text  < this.min || text > this.max ?
-            feedback.innerHTML = 'close' : feedback.innerHTML = 'check'
+            this.feedback.innerHTML = 'close' : this.feedback.innerHTML = 'check'
         ;
 
-        this.displayError(feedback, "Entre " + this.min + " mots minimun et " + this.max + " mots maximum")
+        this.displayError("Entre " + this.min + " mots minimun et " + this.max + " mots maximum")
     }
 
-    displayError(feedback, msg)
+    displayError(msg)
     {
         let elem = document.getElementById(this.errorId);
         elem.innerText = msg;
 
-        feedback.innerHTML === 'close' ?
+        this.feedback.innerHTML === 'close' ?
            elem.style.display = 'block' : elem.style.display = 'none'
         ;
 
