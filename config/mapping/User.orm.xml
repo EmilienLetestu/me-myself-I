@@ -10,6 +10,5 @@
         </id>
         <field name="username" column="username" type="string" unique="true" length="25"/>
         <field name="password" column="password" type="string" length="100"/>
-
     </entity>
 </doctrine-mapping>

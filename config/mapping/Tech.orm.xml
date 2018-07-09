@@ -10,6 +10,5 @@
             <generator strategy="AUTO" />
         </id>
         <field name="name" column="name" type="string" length="100"/>
-
     </entity>
 </doctrine-mapping>

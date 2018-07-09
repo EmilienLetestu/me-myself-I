@@ -12,5 +12,4 @@
         <field name="name" column="name" type="string" length="100"/>
         <field name="level" column="level" type="integer" />
     </entity>
-    
 </doctrine-mapping>
