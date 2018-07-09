@@ -8,6 +8,7 @@
                     {{ form_label(form.name) }}
                     {{ form_widget(form.name) }}
                     <input type="hidden" class="current-data" value="{{ tech.name }}">
+                    <span class="validation-feedback"><i class="material-icons" id="edit-tech-name-feedback"></i></span>
                 </div>
                 <div>
                     <button class="btn waves-effect waves-light color-action-darken" type="submit"><i class="material-icons right">send
@@ -21,5 +22,5 @@
 
     {% block javascripts %}
         {{ parent() }}
-        <script type="text/javascript" src="{{ asset('build/updateForms.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('build/validateUpdateTechForm.js') }}"></script>
     {% endblock %}

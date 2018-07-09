@@ -15,6 +15,8 @@ Encore
     .addEntry('createGauge','./assets/js/createGauge.js')
     .addEntry('validateSkillForm', './assets/js/validateSkillForm.js' )
     .addEntry('validateUpdateSkillForm', './assets/js/validateUpdateSkillForm.js' )
+    .addEntry('validateTechForm', './assets/js/validateTechForm.js')
+    .addEntry('validateUpdateTechForm', './assets/js/validateUpdateTechForm.js')
 
     // .addStyleEntry('css/app', './assets/css/app.scss')
 

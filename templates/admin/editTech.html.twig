@@ -7,6 +7,7 @@
                 <div>
                     {{ form_label(form.name) }}
                     {{ form_widget(form.name) }}
+                    <span class="validation-feedback"><i class="material-icons" id="edit-tech-name-feedback"></i></span>
                 </div>
                 <div>
                     <button class="btn waves-effect waves-ligh color-action-darken" type="submit"><i class="material-icons right">send
@@ -16,5 +17,11 @@
                 {{ form_end(form) }}
             </div>
         </div>
+    {% endblock %}
+
+    {% block javascripts %}
+
+        {{ parent() }}
+        <script type="text/javascript" src={{ asset('build/validateTechForm.js') }}></script>
 
     {% endblock %}
