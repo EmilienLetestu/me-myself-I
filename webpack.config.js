@@ -13,6 +13,7 @@ Encore
     // uncomment to define the assets of the project
     .addEntry('app', './assets/js/app.js')
     .addEntry('gauge','./assets/js/gauge.js')
+    .addEntry('updateForms', './assets/js/updateForms.js')
     // .addStyleEntry('css/app', './assets/css/app.scss')
 
     // empty the outputPath dir before each build

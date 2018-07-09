@@ -7,7 +7,7 @@
              <div>
                  {{ form_label(form.name) }}
                  {{ form_widget(form.name) }}
-                 <input type="hidden" value="{{ project.name }}">
+                 <input type="hidden" class="current-data" value="{{ project.name }}">
              </div>
              <div>
                  {{ form_label(form.pictRef) }}
@@ -17,21 +17,24 @@
              <div>
                  {{ form_label(form.description) }}
                  {{ form_widget(form.description) }}
-                 <input type="hidden" value="{{ project.description}}">
+                 <input type="hidden" class="current-data" value="{{ project.description}}">
              </div>
              <div>
                  {{ form_label(form.link) }}
                  {{ form_widget(form.link) }}
-                 <input type="hidden" value="{{ project.link}}">
+                 <input type="hidden" class="current-data" value="{{ project.link}}">
              </div>
              <div>
                  {{ form_label(form.publish) }}
                  {{ form_widget(form.publish) }}
-                 <input type="hidden" value={{ project.publish }}>
+                 <input type="hidden" class="current-data" value={{ project.publish }}>
              </div>
              <div>
                  {{ form_label(form.techs) }}
                  {{ form_widget(form.techs) }}
+                 {% for tech in project.techs %}
+                     <input type="hidden" class="current-multi-check-data" value={{ tech.id }}>
+                 {% endfor %}
              </div>
              <div>
                  <button class="btn waves-effect waves-light color-action-darken" type="submit"><i class="material-icons right">send
@@ -43,3 +46,8 @@
      </div>
 
  {% endblock %}
+
+{% block javascripts %}
+   {{ parent() }}
+    <script type="text/javascript" src="{{ asset('build/updateForms.js') }}"></script>
+{% endblock %}
