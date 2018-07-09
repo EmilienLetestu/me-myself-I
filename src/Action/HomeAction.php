@@ -104,7 +104,7 @@ class HomeAction
        return $responder(
            $form->createView(),
            $this->doctrine->getRepository(Skill::class)->findAllSkill(),
-           $this->doctrine->getRepository(Project::class)->findAllProject()
+           $this->doctrine->getRepository(Project::class)->findAllProjectWithStatus(true)
            )
        ;
 

@@ -12,7 +12,7 @@ use App\DTO\EditProjectDTO;
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -41,15 +41,12 @@ class EditProjectType extends AbstractType
                 'label' => 'Description (50 mots)'
             ])
             ->add('link', UrlType::class,[
-                'label' => 'Ajouter un lien',
+                'label'    => 'Ajouter un lien',
                 'required' => 'false'
             ])
-            ->add('publish', ChoiceType::class,[
-                'label' => 'publier',
-                'choices' => [
-                    'oui' => 'true',
-                    'non' => 'false'
-                ]
+            ->add('publish', CheckboxType::class,[
+                'label'    => 'publier',
+                'required' => false
             ])
             ->add('techs', EntityType::class,[
                 'class' => 'App\Entity\Tech',
