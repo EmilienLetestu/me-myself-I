@@ -9,6 +9,7 @@ class Gauge {
 
     constructor(canvasList) {
         this.canvasList = document.getElementsByClassName(canvasList);
+
     }
 
     pickColor(level) {
@@ -28,7 +29,7 @@ class Gauge {
         return color;
     }
 
-    percentToDegrees(canvasId) {
+     percentToDegrees(canvasId) {
 
         let idNumber = canvasId.split('_');
         let elem = document.getElementById('skill_' + idNumber[1]);

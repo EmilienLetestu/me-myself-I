@@ -1,6 +1,10 @@
 class ValidateForm {
 
-    constructor(id, min, max,)
+    constructor(
+        id,
+        min,
+        max
+    )
     {
         this.id       = id;
         this.min      = min;

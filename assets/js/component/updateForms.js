@@ -1,6 +1,9 @@
 class UpdateForms {
 
-    constructor(hiddenClass, id = null){
+    constructor(
+        hiddenClass,
+        id = null
+    ){
         this.hiddenClass =  hiddenClass;
         this.id = id;
     }
