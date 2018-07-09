@@ -78,6 +78,7 @@
                         {{ form_label(form.fullName) }}
                         {{ form_widget(form.fullName) }}
                         <span class="validation-feedback"><i class="material-icons" id="contact-fullName-feedback"></i></span>
+                        <span class="error-msg" id="contact-fullName-error"></span>
                     </div>
                     <div>
                         {{ form_label(form.email) }}
@@ -87,11 +88,13 @@
                         {{ form_label(form.subject) }}
                         {{ form_widget(form.subject) }}
                         <span class="validation-feedback"><i class="material-icons" id="contact-subject-feedback"></i></span>
+                        <span class="error-msg" id="contact-subject-error"></span>
                     </div>
                     <div>
                         {{ form_label(form.message) }}
                         {{ form_widget(form.message) }}
                         <span class="validation-feedback"><i class="material-icons" id="contact-message-feedback"></i></span>
+                        <span class="error-msg" id="contact-message-error"></span>
                     </div>
                     <div>
                         <button class="btn waves-effect waves-light color-action-darken" type="submit"><i class="material-icons right">send
