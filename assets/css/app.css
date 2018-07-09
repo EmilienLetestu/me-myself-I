@@ -147,3 +147,7 @@ textarea{
 i.line-height-0{
     line-height: inherit;
 }
+
+.error-msg {
+    display: none;
+}
