@@ -2,4 +2,19 @@
 
     {% block body %}
 
+        {% for project in projects %}
+            {{ project.name }}
+            {{ project.addedOn|date() }}
+            {{ project.publish }}
+        {% endfor %}
+
+        {% for skill in skills %}
+            {{ skill.name }}
+            {{ skill.level }}
+        {% endfor %}
+
+        {% for tech in techs %}
+            {{ tech.name }}
+        {% endfor %}
+
     {% endblock %}

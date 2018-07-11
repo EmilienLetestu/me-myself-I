@@ -29,15 +29,22 @@ class DashboardResponder
     }
 
     /**
+     * @param array $projects
+     * @param array $skills
+     * @param array $techs
      * @return Response
      * @throws \Twig_Error_Loader
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
      */
-    public function __invoke(): Response
+    public function __invoke(array $projects, array $skills, array $techs): Response
     {
        return new Response(
-           $this->twig->render('admin/dashboard.html.twig')
+           $this->twig->render('admin/dashboard.html.twig',[
+               'projects' => $projects,
+               'skills'   => $skills,
+               'techs'    => $techs
+           ])
        );
     }
 }

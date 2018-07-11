@@ -9,12 +9,23 @@
 namespace App\Action\Admin;
 
 
+use App\Entity\Project;
+use App\Entity\Skill;
+use App\Entity\Tech;
 use App\Responder\Admin\DashboardResponder;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class DashboardAction
 {
+    private $doctrine;
+
+    public function __construct(EntityManagerInterface $doctrine)
+    {
+        $this->doctrine = $doctrine;
+    }
+
     /**
      * @param DashboardResponder $responder
      * @return \Symfony\Component\HttpFoundation\Response
@@ -26,6 +37,14 @@ class DashboardAction
      */
     public function __invoke(DashboardResponder $responder) :Response
     {
-        return $responder();
+
+        return $responder(
+            $this->doctrine->getRepository(Project::class)
+            ->findAllProject(),
+            $this->doctrine->getRepository(Skill::class)
+            ->findAllSkill(),
+            $this->doctrine->getRepository(Tech::class)
+            ->findAllTech()
+        );
     }
 }
