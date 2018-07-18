@@ -9,12 +9,14 @@
                     {{ form_widget(form.name) }}
                     <input type="hidden" class="current-data" value="{{ skill.name }}">
                     <span class="validation-feedback"><i class="material-icons" id="edit-skill-name-feedback"></i></span>
+                    <span class="error-msg" id="edit-skill-name-error"></span>
                 </div>
                 <div>
                     {{ form_label(form.level) }}
                     {{ form_widget(form.level) }}
                     <input type="hidden" class="current-data" value="{{ skill.level }}">
                     <span class="validation-feedback"><i class="material-icons" id="edit-skill-level-feedback"></i></span>
+                    <span class="error-msg" id="edit-skill-level-error"></span>
                 </div>
                 <div>
                     <button class="btn waves-effect waves-light color-action-darken" type="submit"><i class="material-icons right">send

@@ -7,18 +7,25 @@
             <div>
                 {{ form_label(form.name) }}
                 {{ form_widget(form.name) }}
+                <span class="validation-feedback"><i class="material-icons" id="edit-project-name-feedback"></i></span>
+                <span class="error-msg" id="edit-project-name-error"></span>
             </div>
             <div>
                 {{ form_label(form.pictRef) }}
                 {{ form_widget(form.pictRef) }}
+                <span class="validation-feedback"><i class="material-icons" id="edit-project-pictRef-feedback"></i></span>
+                <span class="error-msg" id="edit-project-pictRef-error"></span>
             </div>
             <div>
                 {{ form_label(form.description) }}
                 {{ form_widget(form.description) }}
+                <span class="validation-feedback"><i class="material-icons" id="edit-project-description-feedback"></i></span>
+                <span class="error-msg" id="edit-project-description-error"></span>
             </div>
             <div>
                 {{ form_label(form.link) }}
                 {{ form_widget(form.link) }}
+                <span class="validation-feedback"><i class="material-icons" id="edit-project-link-feedback"></i></span>
             </div>
             <div>
                 {{ form_label(form.techs) }}
@@ -37,4 +44,9 @@
             {{ form_end(form) }}
         <div class="col s12 m12">
     </div>
+    {% endblock %}
+
+    {% block javascripts %}
+        {{ parent() }}
+        <script type="text/javascript" src="{{ asset('build/validateProjectForm.js') }}"></script>
     {% endblock %}

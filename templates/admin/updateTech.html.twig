@@ -9,6 +9,7 @@
                     {{ form_widget(form.name) }}
                     <input type="hidden" class="current-data" value="{{ tech.name }}">
                     <span class="validation-feedback"><i class="material-icons" id="edit-tech-name-feedback"></i></span>
+                    <span class="error-msg" id="edit-tech-name-error"></span>
                 </div>
                 <div>
                     <button class="btn waves-effect waves-light color-action-darken" type="submit"><i class="material-icons right">send

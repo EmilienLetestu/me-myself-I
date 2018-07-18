@@ -8,11 +8,13 @@
             {{ form_label(form.name) }}
             {{ form_widget(form.name) }}
             <span class="validation-feedback"><i class="material-icons" id="edit-skill-name-feedback"></i></span>
+            <span class="error-msg" id="edit-skill-name-error"></span>
         </div>
         <div>
             {{ form_label(form.level) }}
             {{ form_widget(form.level) }}
             <span class="validation-feedback"><i class="material-icons" id="edit-skill-level-feedback"></i></span>
+            <span class="error-msg" id="edit-skill-level-error"></span>
         </div>
         <div>
             <button class="btn waves-effect waves-light color-action-darken" type="submit"><i class="material-icons right">send
