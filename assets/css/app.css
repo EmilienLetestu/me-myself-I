@@ -34,6 +34,23 @@ main {
     border-left-color: #009688;
 }
 
+/*--------------------------icons-------------------------------*/
+
+.check{
+    color: #1de9b6;
+}
+
+.edit{
+    color: #00e676;
+}
+
+.close{
+    color: #ef5350;
+}
+
+.delete{
+    color: #ff1744 ;
+}
 /*----------------------------navbar------------------------*/
 .brand-logo{
     font-family: 'Roboto Slab', serif;
@@ -150,4 +167,18 @@ i.line-height-0{
 
 .error-msg {
     display: none;
+}
+
+/*--------------------------cards-------------------------------*/
+
+.table-container{
+    padding: 3rem;
+}
+.table-title{
+    text-align: center;
+    padding: 3rem;
+}
+
+.centered-table-cell{
+    text-align: center;
 }

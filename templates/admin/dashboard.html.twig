@@ -1,20 +1,137 @@
 {% extends 'base.html.twig' %}
 
     {% block body %}
+        <div class="row table-container">
+            <h2 class="table-title">PROJETS</h2>
+            <table class="highlight">
+                <thead>
+                <tr>
+                    <th>
+                        Nom du projet
+                    </th>
+                    <th>
+                        Ajouté le
+                    </th>
+                    <th class="centered-table-cell">
+                        Publié
+                    </th>
+                    <th class="centered-table-cell">
+                        Modifier
+                    </th>
+                    <th class="centered-table-cell">
+                        Supprimer
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for project in projects %}
+                    <tr>
+                        <td>
+                            {{ project.name }}
+                        </td>
+                        <td>
+                            {{ project.addedOn|date("m-d-Y") }}
+                        </td>
+                        <td class="centered-table-cell">
+                            <i class="material-icons {{ project.publish|publicationIcon }}">{{ project.publish|publicationIcon }}</i>
+                        </td>
+                        <td class="centered-table-cell">
+                            <a href="{{ path('updateProject', {'id' : project.id }) }}">
+                                <i class="material-icons edit">edit</i>
+                            </a>
+                        </td>
+                        <td class="centered-table-cell">
+                            <a href="{{ path('deleteProject', {'id' : project.id }) }}">
+                                <i class="material-icons delete">delete</i>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
 
-        {% for project in projects %}
-            {{ project.name }}
-            {{ project.addedOn|date() }}
-            {{ project.publish }}
-        {% endfor %}
+        <div class="row table-container">
+            <h2 class="table-title">Compétences techniques</h2>
+            <table class="responsive-table highlight">
+                <thead>
+                <tr>
+                    <th>
+                       Compétences
+                    </th>
+                    <th class="centered-table-cell">
+                        Niveau
+                    </th>
+                    <th class="centered-table-cell">
+                        Modifier
+                    </th>
+                    <th class="centered-table-cell">
+                        Supprimer
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for skill in skills %}
+                    <tr>
+                        <td>
+                            {{ skill.name }}
+                        </td>
+                        <td class="centered-table-cell">
+                            {{ skill.level }}
+                        </td>
+                        <td class="centered-table-cell">
+                            <a href="{{ path('updateSkill', {'id' : skill.id }) }}">
+                                <i class="material-icons edit">edit</i>
+                            </a>
+                        </td>
+                        <td class="centered-table-cell">
+                            <a href="{{ path('deleteSkill', {'id' : skill.id}) }}">
+                                <i class="material-icons delete">delete</i>
+                            </a>
+                        </td>
+                    </tr>
+                {%endfor%}
+                </tbody>
+            </table>
+        </div>
 
-        {% for skill in skills %}
-            {{ skill.name }}
-            {{ skill.level }}
-        {% endfor %}
+        <div class="row table-container">
+            <h2 class="table-title">Technologies</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            Tech
+                        </th>
+                        <th class="centered-table-cell">
+                            Modifier
+                        </th>
+                        <th class="centered-table-cell">
+                            Supprimer
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for tech in techs %}
+                    <tr>
+                        <td>
+                            {{ tech.name }}
+                        </td>
+                        <td class="centered-table-cell">
+                            <a href="{{ path('updateTech', {'id' : tech.id }) }}">
+                                <i class="material-icons edit">edit</i>
+                            </a>
+                        </td>
+                        <td class="centered-table-cell">
+                            <a href="{{ path('deleteTech', {'id' : tech.id }) }}">
+                                <i class="material-icons delete">delete</i>
+                            </a>
+                        </td>
+                    </tr>
 
-        {% for tech in techs %}
-            {{ tech.name }}
-        {% endfor %}
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
 
     {% endblock %}
