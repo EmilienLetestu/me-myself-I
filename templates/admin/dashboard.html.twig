@@ -41,8 +41,8 @@
                             </a>
                         </td>
                         <td class="centered-table-cell">
-                            <a href="{{ path('deleteProject', {'id' : project.id }) }}">
-                                <i class="material-icons delete">delete</i>
+                            <a href="{{ path('deleteProject', {'id' : project.id }) }}" class="delete-entity" id="delete-project-{{ project.id }}" >
+                                <i class="material-icons delete" >delete</i>
                             </a>
                         </td>
                     </tr>
@@ -85,7 +85,7 @@
                             </a>
                         </td>
                         <td class="centered-table-cell">
-                            <a href="{{ path('deleteSkill', {'id' : skill.id}) }}">
+                            <a href="{{ path('deleteSkill', {'id' : skill.id}) }}" class="delete-entity" id="delete-skill-{{ skill.id }}">
                                 <i class="material-icons delete">delete</i>
                             </a>
                         </td>
@@ -123,7 +123,7 @@
                             </a>
                         </td>
                         <td class="centered-table-cell">
-                            <a href="{{ path('deleteTech', {'id' : tech.id }) }}">
+                            <a href="{{ path('deleteTech', {'id' : tech.id }) }}" class="delete-entity" id="delete-tech-{{ tech.id }}">
                                 <i class="material-icons delete">delete</i>
                             </a>
                         </td>
@@ -134,4 +134,9 @@
             </table>
         </div>
 
+    {% endblock %}
+
+    {% block javascripts %}
+        {{ parent() }}
+        <script type="text/javascript" src="{{ asset('build/deleteProject.js') }}"> </script>
     {% endblock %}
