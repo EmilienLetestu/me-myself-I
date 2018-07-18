@@ -2,8 +2,9 @@ class ValidateForm {
 
     constructor(
         id,
-        min,
-        max
+        min = null,
+        max = null,
+        extension = null
     )
     {
         this.id          = id;
@@ -14,6 +15,7 @@ class ValidateForm {
         this.errorId     = this.replaceChar + '-error';
         this.input       = document.getElementById(this.id);
         this.feedback    = document.getElementById(this.feedbackId);
+        this.extension   = extension
 
     }
 
@@ -50,10 +52,23 @@ class ValidateForm {
         this.displayError("Entre " + this.min + " mots minimun et " + this.max + " mots maximum")
     }
 
+    validateFile()
+    {
+        let fileExtension = this.input.value.split('.').pop();
+
+        console.log(this.extension.includes(fileExtension));
+        this.extension.includes(fileExtension) ?
+            this.feedback.innerHTML = 'check' : this.feedback.innerHTML = 'close';
+
+        this.displayError("Formats accetptés : " + this.extension.toString())
+    }
+
     displayError(msg)
     {
         let elem = document.getElementById(this.errorId);
+        console.log(this.errorId);
         elem.innerText = msg;
+
 
         this.feedback.innerHTML === 'close' ?
            elem.style.display = 'block' : elem.style.display = 'none'
