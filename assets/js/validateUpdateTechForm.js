@@ -1,5 +1,5 @@
-import {UpdateForms} from "./component/updateForms";
-import {ValidateForm} from "./component/validateForm";
+import {UpdateForms} from "./class/updateForms";
+import {ValidateForm} from "./class/validateForm";
 
 new UpdateForms('current-data').fillWithOriginalData();
 

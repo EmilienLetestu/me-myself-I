@@ -1,4 +1,4 @@
-import {ValidateForm} from "./component/validateForm";
+import {ValidateForm} from "./class/validateForm";
 
 document.getElementById('contact_message').addEventListener('keyup', function () {
     new ValidateForm('contact_message', 10, 300).validateWordCount();

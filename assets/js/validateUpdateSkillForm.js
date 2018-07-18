@@ -1,5 +1,5 @@
-import {ValidateForm} from "./component/validateForm";
-import {UpdateForms} from "./component/updateForms";
+import {ValidateForm} from "./class/validateForm";
+import {UpdateForms} from "./class/updateForms";
 
 document.getElementById('edit_skill_name').addEventListener('keyup', function () {
     new ValidateForm('edit_skill_name', 2, 100).validateTextLength();
