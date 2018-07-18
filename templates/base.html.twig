@@ -27,7 +27,7 @@
                         <li><a href="#project"><i class="material-icons">brush</i></a></li>
                         <li><a href="#contact"><i class="material-icons">email</i></a></li>
                         {% if is_granted('ROLE_ADMIN') %}
-                            <li><a href="{{ path('editProject') }}"><i class="material-icons">dashboard</i></a></li>
+                            <li><a href="{{ path('adminDashboard') }}"><i class="material-icons">dashboard</i></a></li>
                         {% endif %}
                     </ul>
                 </div>
