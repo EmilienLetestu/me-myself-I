@@ -42,7 +42,7 @@ class EditProjectType extends AbstractType
             ])
             ->add('link', UrlType::class,[
                 'label'    => 'Ajouter un lien',
-                'required' => 'false'
+                'required' => false
             ])
             ->add('publish', CheckboxType::class,[
                 'label'    => 'publier',
