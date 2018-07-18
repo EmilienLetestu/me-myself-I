@@ -7,18 +7,21 @@
  */
 
 namespace App\Responder\Admin;
-
-
-use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Response;
 
 class DeleteProjectResponder
 {
     /**
-     * @param string $redirection
-     * @return RedirectResponse
+     * @param string $result
+     * @return Response
      */
-    public function __invoke(string $redirection) :RedirectResponse
+    public function __invoke(string $result) :Response
     {
-        return new RedirectResponse($redirection);
+        $response = new Response($result);
+
+        $response->headers->set('Content-Type', 'text/xml');
+
+        return $response;
+
     }
 }
