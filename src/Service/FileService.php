@@ -44,17 +44,19 @@ class FileService
 
     /**
      * @param Project $project
-     * @return bool
+     * @return string
      */
     public function updateFileName(Project $project)
     {
         $dir = $this->getTargetDir();
         $extension = explode('.',$project->getPictRef());
 
-        return rename(
+        rename(
             $dir.'/'.$project->getPictRef(),
-            $dir.'/'.$project->getName().'_pict.'.$extension
+            $dir.'/'.$project->getName().'_pict.'.end($extension)
         );
+
+        return $project->getName().'_pict.'.end($extension);
     }
 
     /**
