@@ -19,6 +19,8 @@ Encore
     .addEntry('validateUpdateTechForm', './assets/js/validateUpdateTechForm.js')
     .addEntry('validateContact', './assets/js/validateContact.js')
     .addEntry('validateProjectForm', './assets/js/validateProjectForm.js')
+    .addEntry('validateUpdateProjectForm', './assets/js/validateUpdateProjectForm.js')
+
 
     // .addStyleEntry('css/app', './assets/css/app.scss')
 
