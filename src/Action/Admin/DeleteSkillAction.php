@@ -79,7 +79,7 @@ class DeleteSkillAction
        ;
 
        return $responder(
-           $this->urlGenerator->generate("home")
+           $this->urlGenerator->generate("adminDashboard")
        );
     }
 }

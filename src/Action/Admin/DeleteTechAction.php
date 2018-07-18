@@ -56,6 +56,8 @@ class DeleteTechAction
      * @param Request $request
      * @param DeleteTechResponder $responder
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     *
      * @Route(
      *     "admin/delete/tech/{id}",
      *     name = "deleteTech",
@@ -76,7 +78,7 @@ class DeleteTechAction
         ;
 
         return $responder(
-            $this->urlGenerator->generate('home')
+            $this->urlGenerator->generate('adminDashboard')
         );
     }
 }

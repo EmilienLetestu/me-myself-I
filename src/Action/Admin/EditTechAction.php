@@ -86,7 +86,7 @@ class EditTechAction
             ;
 
             return new RedirectResponse(
-                $this->urlGenerator->generate('home')
+                $this->urlGenerator->generate('adminDashboard')
             );
         }
 

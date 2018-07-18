@@ -89,7 +89,7 @@ class DeleteProjectAction
         ;
 
         return $responder(
-            $this->urlGenerator->generate('home')
+            $this->urlGenerator->generate('adminDashboard')
         );
     }
 

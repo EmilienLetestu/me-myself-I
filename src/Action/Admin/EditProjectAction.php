@@ -87,7 +87,7 @@ class EditProjectAction
             ;
 
             return new RedirectResponse(
-                $this->urlGenerator->generate('home')
+                $this->urlGenerator->generate('adminDashboard')
             );
         }
 

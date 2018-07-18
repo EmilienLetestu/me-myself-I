@@ -76,11 +76,12 @@ class UpdateTechAction
      * @param Request $request
      * @param UpdateTechResponder $responder
      * @return RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @throws \Doctrine\ORM\NonUniqueResultException
      * @throws \Twig_Error_Loader
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
      *
-     * @Route(
+     *  @Route(
      *     "admin/update/tech/{id}",
      *     name = "updateTech",
      *     requirements={"id" = "\d+"}
@@ -104,7 +105,7 @@ class UpdateTechAction
             ;
 
             return new RedirectResponse(
-                $this->urlGenerator->generate('home')
+                $this->urlGenerator->generate('adminDashboard')
             );
         }
 

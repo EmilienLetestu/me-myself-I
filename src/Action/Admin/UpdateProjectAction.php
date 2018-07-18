@@ -105,7 +105,7 @@ class UpdateProjectAction
             ;
 
             return new RedirectResponse(
-                $this->urlGenerator->generate('home')
+                $this->urlGenerator->generate('adminDashboard')
             );
         }
 
