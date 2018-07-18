@@ -48,29 +48,42 @@ class UpdateProjectHandler
     {
         if($form->isSubmitted() && $form->isValid())
         {
-            $fileName = $form->get('pictRef')->getData() !== null ?:
 
-                $this->fileService->eraseFileAndReplace(
+            $uploadedFile = $form->get('pictRef')->getData();
+
+            if($uploadedFile!== null)
+            {
+                $fileName = $this->fileService->eraseFileAndReplace(
                     $form->get('pictRef')->getData(),
                     $form->get('name')->getData(),
                     $project->getPictRef()
-                )
-            ;
+                );
 
-            $form->get('name')->getData() !== $project->getName() ?:
-               $this->fileService->updateFileName($project)
-            ;
+                $project->setPictRef($fileName);
+            }
+
+            if($form->get('name')->getData() !== $project->getName())
+            {
+              $project->setPictRef(
+                  $this->fileService->updateFileName($project)
+              );
+            }
+
 
             $project->setName($form->get('name')->getData());
             $project->setAddedOn('Y-m-d');
-            $project->setPictRef($fileName);
             $project->setDescription($form->get('description')->getData());
             $project->setLink($form->get('link')->getData());
             $project->setPublish($form->get('publish')->getData());
 
-            foreach ($form->get('techs')->getData() as $tech){
 
-                $project->addTech($tech);
+            $techList = array_diff_key(
+                $form->get('techs')->getData()->toArray(), $project->getTechs()->toArray()
+            );
+
+            foreach ($techList as $tech){
+
+               $project->addTech($tech);
             }
 
             $this->doctrine->flush();
