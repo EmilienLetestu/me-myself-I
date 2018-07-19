@@ -28,3 +28,7 @@ services:
     App\Service\FileService:
         arguments:
             $targetDir: '%projects_pictures_directory%'
+
+    App\EventListener\ExceptionListener:
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception }
