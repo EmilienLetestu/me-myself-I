@@ -169,7 +169,7 @@ i.line-height-0{
     display: none;
 }
 
-/*--------------------------cards-------------------------------*/
+/*--------------------------table-------------------------------*/
 
 .table-container{
     padding: 3rem;
@@ -180,5 +180,10 @@ i.line-height-0{
 }
 
 .centered-table-cell{
+    text-align: center;
+}
+
+.edit-link{
+    padding-top: 2rem;
     text-align: center;
 }

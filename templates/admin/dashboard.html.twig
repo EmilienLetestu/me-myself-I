@@ -2,7 +2,9 @@
 
     {% block body %}
         <div class="row table-container">
+
             <h2 class="table-title">PROJETS</h2>
+
             <table class="highlight">
                 <thead>
                 <tr>
@@ -51,10 +53,17 @@
                 {% endfor %}
                 </tbody>
             </table>
+
+            <div class="edit-link">
+                <a href="{{ path('editProject') }}" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+            </div>
+
         </div>
 
         <div class="row table-container">
+
             <h2 class="table-title">Compétences techniques</h2>
+
             <table class="responsive-table highlight">
                 <thead>
                 <tr>
@@ -95,10 +104,17 @@
                 {%endfor%}
                 </tbody>
             </table>
+
+             <div class="edit-link">
+                <a href="{{ path('editSkill') }}" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+             </div>
+
         </div>
 
         <div class="row table-container">
+
             <h2 class="table-title">Technologies</h2>
+
             <table>
                 <thead>
                     <tr>
@@ -130,10 +146,14 @@
                             </a>
                         </td>
                     </tr>
-
                 {% endfor %}
                 </tbody>
             </table>
+
+            <div class="edit-link">
+                <a href="{{ path('editTech') }}" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+            </div>
+
         </div>
 
     {% endblock %}
