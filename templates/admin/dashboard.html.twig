@@ -25,7 +25,7 @@
                 </thead>
                 <tbody>
                 {% for project in projects %}
-                    <tr>
+                    <tr id="row-project-{{ project.id }}">
                         <td>
                             {{ project.name }}
                         </td>
@@ -33,7 +33,9 @@
                             {{ project.addedOn|date("m-d-Y") }}
                         </td>
                         <td class="centered-table-cell">
-                            <i class="material-icons {{ project.publish|publicationIcon }}">{{ project.publish|publicationIcon }}</i>
+                            <a href="{{ path('updateStatus', {'id' : project.id}) }}" class="crud-ajax" id="update-publication-{{ project.id}}">
+                                <i class="material-icons {{ project.publish|publicationIcon }}">{{ project.publish|publicationIcon }}</i>
+                            </a>
                         </td>
                         <td class="centered-table-cell">
                             <a href="{{ path('updateProject', {'id' : project.id }) }}">
@@ -41,7 +43,7 @@
                             </a>
                         </td>
                         <td class="centered-table-cell">
-                            <a href="{{ path('deleteProject', {'id' : project.id }) }}" class="delete-entity" id="delete-project-{{ project.id }}" >
+                            <a href="{{ path('deleteProject', {'id' : project.id }) }}" class="crud-ajax" id="delete-project-{{ project.id }}" >
                                 <i class="material-icons delete" >delete</i>
                             </a>
                         </td>
@@ -85,7 +87,7 @@
                             </a>
                         </td>
                         <td class="centered-table-cell">
-                            <a href="{{ path('deleteSkill', {'id' : skill.id}) }}" class="delete-entity" id="delete-skill-{{ skill.id }}">
+                            <a href="{{ path('deleteSkill', {'id' : skill.id}) }}" class="crud-ajax" id="delete-skill-{{ skill.id }}">
                                 <i class="material-icons delete">delete</i>
                             </a>
                         </td>
@@ -123,7 +125,7 @@
                             </a>
                         </td>
                         <td class="centered-table-cell">
-                            <a href="{{ path('deleteTech', {'id' : tech.id }) }}" class="delete-entity" id="delete-tech-{{ tech.id }}">
+                            <a href="{{ path('deleteTech', {'id' : tech.id }) }}" class="crud-ajax" id="delete-tech-{{ tech.id }}">
                                 <i class="material-icons delete">delete</i>
                             </a>
                         </td>
