@@ -8,17 +8,14 @@
 
 namespace App\Action\Admin;
 
-
-use App\Entity\Project;
 use App\Manager\ProjectManager;
 use App\Responder\Admin\DeleteProjectResponder;
 use App\Service\FileService;
 use Doctrine\ORM\EntityManagerInterface;
 
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class DeleteProjectAction
 {
@@ -32,7 +29,12 @@ class DeleteProjectAction
      */
     private $fileService;
 
+    /**
+     * @var ProjectManager
+     */
     private $projectManager;
+
+
 
     /**
      * DeleteProjectAction constructor.

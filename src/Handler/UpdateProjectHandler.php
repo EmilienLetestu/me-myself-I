@@ -64,6 +64,7 @@ class UpdateProjectHandler
 
             if($form->get('name')->getData() !== $project->getName())
             {
+              $project->setName($form->get('name')->getData());
               $project->setPictRef(
                   $this->fileService->updateFileName($project)
               );
