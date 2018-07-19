@@ -12,9 +12,9 @@ namespace App\Manager;
 use App\Entity\Project;
 use App\Service\FileService;
 use Doctrine\ORM\EntityManagerInterface;
-
 class ProjectManager
 {
+
     /**
      * @param EntityManagerInterface $doctrine
      * @param int $id
@@ -28,12 +28,51 @@ class ProjectManager
             ->findProjectWithId($id)
         ;
 
+        if(!$project)
+        {
+            return 'Aucune correpondance trouvée';
+        }
+
+
         $fileService->eraseFile($project->getPictRef());
 
         $doctrine->remove($project);
         $doctrine->flush();
 
-        return 'success';
+        return 'Projet supprimé avec succès';
 
     }
+
+    /**
+     * @param EntityManagerInterface $doctrine
+     * @param int $id
+     * @return string
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function updatePublicationStatus(EntityManagerInterface $doctrine, int $id): string
+    {
+        $project = $doctrine->getRepository(Project::class)
+            ->findProjectWithId($id)
+        ;
+
+        if(!$project)
+        {
+            return 'Aucune correpondance trouvée';
+        }
+
+        //var_dump($project->getPublish()); die();
+
+        $project->getPublish() === true ?
+            $project->setPublish(false) : $project->setPublish(true)
+        ;
+
+        $doctrine->flush();
+
+        return $project->getPublish() === true ?
+            'Projet publié' : 'Publication retirée'
+        ;
+    }
+
+
+
 }
