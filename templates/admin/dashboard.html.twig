@@ -74,7 +74,7 @@
                 </thead>
                 <tbody>
                 {% for skill in skills %}
-                    <tr>
+                    <tr id="row-skill-{{ skill.id }}">
                         <td>
                             {{ skill.name }}
                         </td>
@@ -115,7 +115,7 @@
                 </thead>
                 <tbody>
                 {% for tech in techs %}
-                    <tr>
+                    <tr id="row-tech-{{ tech.id }}">
                         <td>
                             {{ tech.name }}
                         </td>

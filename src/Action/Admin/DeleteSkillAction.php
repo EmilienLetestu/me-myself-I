@@ -9,14 +9,14 @@
 namespace App\Action\Admin;
 
 
-use App\Entity\Skill;
+
+use App\Manager\SkillManager;
 use App\Responder\Admin\DeleteSkillResponder;
 
 use Doctrine\ORM\EntityManagerInterface;
 
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class DeleteSkillAction
@@ -26,31 +26,23 @@ class DeleteSkillAction
      */
     private $doctrine;
 
-    /**
-     * @var SessionInterface
-     */
-    private $session;
+    private $skillManager;
 
-    /**
-     * @var UrlGeneratorInterface
-     */
-    private $urlGenerator;
 
     /**
      * DeleteSkillAction constructor.
      * @param EntityManagerInterface $doctrine
-     * @param SessionInterface $session
-     * @param UrlGeneratorInterface $urlGenerator
+     * @param SkillManager $skillManager
      */
     public function __construct(
         EntityManagerInterface $doctrine,
-        SessionInterface       $session,
-        UrlGeneratorInterface  $urlGenerator
+        SkillManager           $skillManager
+
     )
     {
         $this->doctrine     = $doctrine;
-        $this->session      = $session;
-        $this->urlGenerator = $urlGenerator;
+        $this->skillManager = $skillManager;
+
     }
 
     /**
@@ -65,21 +57,12 @@ class DeleteSkillAction
      *     requirements={"id" = "\d+"}
      * )
      */
-    public function __invoke(Request $request, DeleteSkillResponder $responder)
+    public function __invoke(Request $request, DeleteSkillResponder $responder): Response
     {
-       $skill = $this->doctrine->getRepository(Skill::class)
-            ->findSkillWithId($request->get('id'))
-       ;
-
-       $this->doctrine->remove($skill);
-       $this->doctrine->flush();
-
-       $this->session->getFlashBag()
-        ->add('success','Compétence supprimée avec succès')
-       ;
-
        return $responder(
-           $this->urlGenerator->generate("adminDashboard")
+           $this->skillManager->deleteSkill(
+               $this->doctrine, $request->get('id')
+           )
        );
     }
 }

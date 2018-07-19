@@ -8,14 +8,13 @@
 
 namespace App\Action\Admin;
 
-use App\Entity\Tech;
+use App\Manager\TechManager;
 use App\Responder\Admin\DeleteTechResponder;
 
 use Doctrine\ORM\EntityManagerInterface;
 
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class DeleteTechAction
@@ -25,31 +24,22 @@ class DeleteTechAction
      */
     private $doctrine;
 
-    /**
-     * @var SessionInterface
-     */
-    private $session;
+    private $techManager;
 
-    /**
-     * @var UrlGeneratorInterface
-     */
-    private $urlGenerator;
 
     /**
      * DeleteTechAction constructor.
      * @param EntityManagerInterface $doctrine
-     * @param SessionInterface $session
-     * @param UrlGeneratorInterface $urlGenerator
+     * @param TechManager $techManager
      */
     public function __construct(
         EntityManagerInterface $doctrine,
-        SessionInterface       $session,
-        UrlGeneratorInterface  $urlGenerator
+        TechManager            $techManager
+
     )
     {
         $this->doctrine     = $doctrine;
-        $this->session      = $session;
-        $this->urlGenerator = $urlGenerator;
+        $this->techManager  = $techManager;
     }
 
     /**
@@ -64,21 +54,12 @@ class DeleteTechAction
      *     requirements={"id" = "\d+"}
      * )
      */
-    public function __invoke(Request $request, DeleteTechResponder $responder)
+    public function __invoke(Request $request, DeleteTechResponder $responder): Response
     {
-        $tech = $this->doctrine->getRepository(Tech::class)
-            ->findTechWithId($request->get('id'))
-        ;
-
-        $this->doctrine->remove($tech);
-        $this->doctrine->flush();
-
-        $this->session->getFlashBag()
-            ->add('success', 'techno supprimée avec suuccès')
-        ;
-
         return $responder(
-            $this->urlGenerator->generate('adminDashboard')
+           $this->techManager->deleteTech(
+               $this->doctrine, $request->get('id')
+           )
         );
     }
 }
