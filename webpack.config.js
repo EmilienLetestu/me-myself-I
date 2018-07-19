@@ -20,7 +20,7 @@ Encore
     .addEntry('validateContact', './assets/js/validateContact.js')
     .addEntry('validateProjectForm', './assets/js/validateProjectForm.js')
     .addEntry('validateUpdateProjectForm', './assets/js/validateUpdateProjectForm.js')
-    .addEntry('deleteProject', './assets/js/deleteProject.js')
+    .addEntry('ajax', './assets/js/ajax.js')
 
 
     // .addStyleEntry('css/app', './assets/css/app.scss')
